@@ -3,12 +3,16 @@ const emails = {
         "charlie@make-it-all.co.uk":"#Charlie123",
         "christo@make-it-all.co.uk":"#Christo123"
     };
+localStorage.setItem("abhay@make-it-all.co.uk", JSON.stringify(["#Abhay123", "Employee"]));
+localStorage.setItem("charlie@make-it-all.co.uk", JSON.stringify(["#Charlie123", "Employee"]))
+localStorage.setItem("christo@make-it-all.co.uk", JSON.stringify(["#Christo123", "Employee"]));
+
 
 function submitEmail() {
     // get email entered
     let email = document.getElementById("email").value;
 
-    if (email in emails) {
+    if (localStorage.getItem(email) != null) {
         // make the password visible
         document.getElementById("password-container").style.display = "block";
     }
