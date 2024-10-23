@@ -35,12 +35,15 @@ function getTasks() {
     let importanceColors = {1:"red", 2:"yellow", 3:"green"};
 
     tasks.forEach((task,index) => {
-        tasksHTML.innerHTMl += `
-        <div class="todo-task-importance">
-            <div class="todo-task-importance-inner" id="importance1" style="${importanceColors[task.importance]}"></div>
+        console.log(index);
+        tasksHTML.innerHTML += `
+        <div class="task" id="task${index}">
+            <div class="todo-task-importance">
+                <div class="todo-task-importance-inner" id="importance1" style="${importanceColors[task.importance]}"></div>
+            </div>
+            <div class="todo-task-title">${task.title}</div>
+            <div class="todo-task-date">${task.due}</div>
         </div>
-        <div class="todo-task-title">${task.title}</div>
-        <div class="todo-task-date">${task.due}</div>
         `
     })
 }
