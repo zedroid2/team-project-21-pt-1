@@ -8,12 +8,16 @@ body {
 }
 
 /* CSS FOR HOVERING */
-.side-button, .task, .see-more-tasks :hover{
+.side-button, .task :hover{
   cursor:pointer;
 }
 
+.header-container {
+    display:flex
+}
 
 .welcome {
+    flex-grow:1;
     margin-top:1.5vh;
     margin-left:2%;
 }
@@ -25,6 +29,21 @@ body {
 .welcome #date {
     font-size:3em;
     margin-top:0vh;
+}
+
+.account {
+    width:7.5%;
+    height:7.5vw;
+    border-radius:15em;
+    margin-right:2%;
+    margin-top:1.25%;
+    background-color:#F2D87B;
+    text-align:center;
+    font-size:6em;
+}
+
+.account:hover {
+    cursor:pointer;
 }
 
 .container {
@@ -64,7 +83,7 @@ body {
 }
 
 #todo {
-    background-color:#F2D87B;
+    background-color:#EFBB00;
     float:right;
     flex-grow: 1;
     border-radius:7.5vh;
@@ -194,3 +213,5 @@ body {
 .detailed-task-complete:hover {
   cursor:pointer;
 }
+
+

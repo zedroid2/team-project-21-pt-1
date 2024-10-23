@@ -1,6 +1,14 @@
 function loadFunctions() {
     setNameAndDate();
     getTasks();
+    checkLogin();
+}
+
+function checkLogin() {
+    let currentUser = localStorage.getItem("current_user");
+    if (currentUser == "" || currentUser == null) {
+        window.location.replace("index.html");
+    }
 }
 
 function setNameAndDate() {
@@ -20,6 +28,9 @@ function setNameAndDate() {
     }
     name.innerHTML = email.substring(0,email.indexOf("@"));
     date.innerHTML = new Date().toLocaleDateString("en-GB");
+
+    // set the initial of the account:
+    document.getElementById("account").innerHTML = name.substring(0,1);
 }
 
 function getTasks() {
