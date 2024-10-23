@@ -25,6 +25,13 @@ body {
     width: 500px;
 }
 
+label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+}
+
 input {
     padding: 10px;
     border-radius: 20px;
@@ -51,3 +58,19 @@ button {
 button:hover {
     background-color: #eee;
 }
+
+
+#password-container {
+    position: relative;
+}
+
+#tglePwd {
+    position: absolute;
+    left: 460px; 
+    top: 27%;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    pointer-events: all; /*Clicks only work on the checkbox*/
+}
+
