@@ -828,13 +828,23 @@ localStorage.setItem("nishad", JSON.stringify(tasks7));
 
 
 function submitEmail() {
-// get email entered
-let email = document.getElementById("email").value;
+    // get email entered
+    let email = document.getElementById("email").value;
 
-if (localStorage.getItem(email) != null) {
-    // make the password visible
-    document.getElementById("password-container").style.display = "block";
+    if (localStorage.getItem(email) != null) {
+        // make the password visible
+        document.getElementById("password-container").style.display = "block";
+        document.getElementById("email-submit").style.display = "none";
+    }
 }
+
+function togglePassword() {
+    let x = document.getElementById("password");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
 }
 
 function login(event) {
