@@ -41,7 +41,7 @@ function getTasks() {
         // need to compare #tasks height(which has a predetermined)
         // height of 0, to #todo-tasks wrapper
         let tasksHeight = tasksHTML.clientHeight;
-        let todoTasksHeight = document.getElementById("todo-tasks");
+        let todoTasksHeight = document.getElementById("todo-tasks").clientHeight;
         console.log("tasksHeight: " + tasksHeight + ", todoTasksHeight: " + todoTasksHeight);
         if (tasksHeight+50 < todoTasksHeight) {
             console.log(index);
