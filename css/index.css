@@ -1,4 +1,5 @@
-body { /* chill2g*/
+
+body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     display: flex;
@@ -7,6 +8,7 @@ body { /* chill2g*/
     height: 100vh;
     margin: 0;
 }
+
 #login {
     background-color: #f4d06f; /* Matches the yellow box */
     padding: 40px;
@@ -15,11 +17,13 @@ body { /* chill2g*/
     text-align: center;
     width: 500px;
 }
+
 h1 {
     font-size: 24px;
     color: #4a4a4a;
     margin-bottom: 20px;
 }
+
 input {
     padding: 10px;
     border-radius: 20px;
@@ -31,6 +35,7 @@ input {
     font-size: 16px;
     text-align: center;
 }
+
 button {
     padding: 10px 20px;
     background-color: white;
@@ -41,6 +46,7 @@ button {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
 }
+
 button:hover {
     background-color: #eee;
 }
