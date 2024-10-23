@@ -7,6 +7,68 @@ localStorage.setItem("abhay@make-it-all.co.uk", JSON.stringify(["#Abhay123", "Em
 localStorage.setItem("charlie@make-it-all.co.uk", JSON.stringify(["#Charlie123", "Employee"]))
 localStorage.setItem("christo@make-it-all.co.uk", JSON.stringify(["#Christo123", "Employee"]));
 
+//to do tasks: Title, importance, description, 
+let tasks1 = [
+    {
+        title: "Task 1",
+        importance: 1,
+        description: "A detailed description of task 1 and its various requirements",
+        due: "22/10/24",
+        active: true,
+        assigner: "Charlie Wyke"
+    },
+    {
+        title: "Task 2",
+        importance: 1,
+        description: "A detailed description of task 2 and its various requirements",
+        due: "26/10/24",
+        active: true,
+        assigner: "Charlie Wyke"
+    },
+    {
+        title: "Task 3",
+        importance: 2,
+        description: "A detailed description of task 3 and its various requirements",
+        due: "29/10/24",
+        active: true,
+        assigner: "Charlie Wyke"
+    },
+    {
+        title: "Task 4",
+        importance: 2,
+        description: "A detailed description of task 4 and its various requirements",
+        due: "02/11/24",
+        active: true,
+        assigner: "Charlie Wyke"
+    },
+    {
+        title: "Task 5",
+        importance: 3,
+        description: "A detailed description of task 5 and its various requirements",
+        due: "17/12/24",
+        active: true,
+        assigner: "Charlie Wyke"
+    },
+    {
+        title: "Task 6",
+        importance: 3,
+        description: "A detailed description of task 6 and its various requirements",
+        due: "26/10/24",
+        active: true,
+        assigner: "Charlie Wyke"
+    },
+    {
+        title: "Task 7",
+        importance: 3,
+        description: "A detailed description of task 7 and its various requirements",
+        due: "26/10/24",
+        active: true,
+        assigner: "Charlie Wyke"
+    }
+]
+// assign tasks to local storage
+localStorage.setItem("user", JSON.stringify(tasks1));
+
 
 function submitEmail() {
     // get email entered

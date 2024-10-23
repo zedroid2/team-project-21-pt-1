@@ -1,0 +1,153 @@
+*{
+    margin:0 auto;
+    color: #353535;
+}
+
+body {
+    background-color: #F5F5F5;
+}
+
+.welcome {
+    margin-top:1.5vh;
+    margin-left:2%;
+}
+
+.welcome h1 {
+    font-size:4em;
+}
+
+.welcome #date {
+    font-size:3em;
+    margin-top:0vh;
+}
+
+.container {
+    width:96%;
+    display:flex;
+    margin:auto;
+    margin-top:2vh;
+}
+
+.halves {
+    height:80vh;
+}
+
+#side-buttons {
+    /*background-color: black;*/
+    width:30%;
+    margin-right: 2%;
+}
+
+.side-button {
+    width:100%;
+    background-color: #F2D87B;
+    height:calc(0.221789 * 80vh);
+    margin:auto;
+    border-radius:10em;
+    margin-bottom: calc(0.0376 * 80vh);
+    
+}
+
+.side-button-text {
+    height:100%;
+    width:100%;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    font-size:3em;
+}
+
+#todo {
+    background-color:#F2D87B;
+    float:right;
+    flex-grow: 1;
+    border-radius:7.5vh;
+    display:flex;
+}
+
+#todo-header {
+    background-color:none;
+    height:12.5%;
+    display:flex;
+}
+
+#todo-history-button {
+    width:3vw;
+    margin-right:5%;
+    margin-top:4vh;
+}
+
+#todo-header h1 {
+    font-size:4em;
+    font-weight:700;
+    width:50%;
+    flex-grow:1;
+    margin-left:3.5vh;
+    margin-top:2.5vh;
+}
+
+#todo-tasks {
+    width:50%;
+    float:left;
+    
+}
+
+.vertical-seperator {
+    width:2px;
+    background-color:grey;
+    height:90%;
+    border-radius:10em;
+    margin-top:3%;
+    opacity:0.2;
+}
+
+.detailed-task {
+    height:100%;
+    flex-grow:1;
+}
+
+
+/* CSS for each individual task*/
+
+.tasks {
+    height:87.5%;
+    background-color:none;
+}
+
+.task {
+    background-color:none;
+    display:flex;
+}
+
+.todo-task-importance {
+    padding:5%;
+}
+
+.todo-task-importance-inner {
+    width:0.5em;
+    height:0.5em;
+    border-radius:0.5em;
+    background-color:red;
+}
+
+.todo-task-title {
+    font-size:1.75em;
+    flex-grow:1;
+    padding:3%;
+}
+
+.todo-task-date {
+    width:20%;
+    font-size:1.5em;
+    padding:3.5%;
+}
+
+.see-more-tasks {
+    text-decoration:underline;
+    text-align:center;
+}
+
+
+
+
+

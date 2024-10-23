@@ -3,10 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/ALL.css">
+    <link rel="stylesheet" href="css/empDashboard.css">
+    <script src="js/empDashboard.js"></script>
     <title>Document</title>
 </head>
-<body>
-    hi
+<body onload="loadFunctions()">
     <script>console.log(localStorage.getItem("current_user"))</script>
+
+    <div class="welcome">
+        <h1>Welcome <span id="welcome-name"></span></h1>
+        <h2 id="date"></h2>
+    </div>
+    <div class="container">
+        <div class="halves" id="side-buttons">
+            <div class="side-button" id="calendar">
+                <div class="side-button-text">Calendar</div>
+            </div>
+            <div class="side-button" id="unknown">
+                <div class="side-button-text">Unknown</div>
+            </div>
+            <div class="side-button" id="team">
+                <div class="side-button-text">Team</div>
+            </div>
+            <div class="side-button" id="forum">
+                <div class="side-button-text">Topic</div>
+            </div>
+        </div>
+        <div class="halves" id="todo">
+            <div class="todo-tasks" id="todo-tasks">
+                <div id="todo-header">
+                    <h1>To Do Tasks</h1>
+                    <div id="todo-history-button">
+                        <svg clip-rule="evenodd" fill-rule="evenodd"
+                        stroke-linejoin="round" stroke-miterlimit="2"
+                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m3.503 6.726c1.765-2.836 4.911-4.726 8.495-4.726 5.518 0 9.997 4.48 9.997 9.997 0 5.519-4.479 9.999-9.997 9.999-5.245 0-9.553-4.048-9.966-9.188-.024-.302.189-.811.749-.811.391 0 .715.3.747.69.351 4.369 4.012 7.809 8.47 7.809 4.69 0 8.497-3.808 8.497-8.499 0-4.689-3.807-8.497-8.497-8.497-3.037 0-5.704 1.597-7.206 3.995l1.991.005c.414 0 .75.336.75.75s-.336.75-.75.75h-4.033c-.414 0-.75-.336-.75-.75v-4.049c0-.414.336-.75.75-.75s.75.335.75.75zm7.487.021.007 5.563c0 .288.165.55.424.675l3.978 1.928c.373.18.821.024 1.001-.349s.024-.821-.349-1.001l-3.555-1.725s-.006-5.093-.006-5.093c0-.414-.337-.749-.75-.749-.414 0-.75.337-.75.751z" fill-rule="nonzero"/></svg>
+                    </div>
+                </div>
+                <div class="tasks" id="tasks">
+                    <div class="task" id="task1">
+                        <div class="todo-task-importance">
+                            <div class="todo-task-importance-inner" id="importance1"></div>
+                        </div>
+                        <div class="todo-task-title">Task 1 title</div>
+                        <div class="todo-task-date">22/10/24</div>
+                    </div>
+                    <div class="see-more-tasks" id="see-more-tasks">
+                        See More Tasks
+                    </div>
+                </div>
+            </div>
+            <div class="vertical-seperator"></div>
+            <div class="detailed-task" id="detailed-task">
+                <p style="text-align:center;margin-top:50%;font-weight:600; font-size:1.25em;">Click a task to see its details</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
