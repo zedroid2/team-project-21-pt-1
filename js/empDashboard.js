@@ -29,13 +29,13 @@ function getTasks() {
     let tasks = JSON.parse(taskString);
 
     // get the div where the tasks will be shown
-    tasks = document.getElementById("tasks");
+    tasksHTML = document.getElementById("tasks");
 
     // array for the colors of importance:
     let importanceColors = {1:"red", 2:"yellow", 3:"green"};
 
     tasks.forEach((task,index) => {
-        tasks.innerHTMl += `
+        tasksHTML.innerHTMl += `
         <div class="todo-task-importance">
             <div class="todo-task-importance-inner" id="importance1" style="${importanceColors[task.importance]}"></div>
         </div>
