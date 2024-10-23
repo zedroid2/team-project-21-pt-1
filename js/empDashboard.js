@@ -34,12 +34,15 @@ function getTasks() {
     // array for the colors of importance:
     let importanceColors = {1:"red", 2:"yellow", 3:"green"};
 
+    console.log(tasks);
+
     tasks.forEach((task,index) => {
         // detect overflow and add see more tasks button
         // need to compare #tasks height(which has a predetermined)
         // height of 0, to #todo-tasks wrapper
         let tasksHeight = tasksHTML.clientHeight;
         let todoTasksHeight = document.getElementById("todo-tasks");
+        console.log("tasksHeight: " + tasksHeight + ", todoTasksHeight: " + todoTasksHeight);
         if (tasksHeight+50 < todoTasksHeight) {
             console.log(index);
             tasksHTML.innerHTML += `
@@ -53,6 +56,7 @@ function getTasks() {
             ` 
         } else {
             //else create see more tasks
+            console.log("else activated");
             document.getElementById("see-more-tasks").style.display = "block;";
         }
         
