@@ -53,7 +53,7 @@ function getTasks() {
             ` 
         } else {
             //else create see more tasks
-            document.getElementById("see-more-tasks").style.display="block;";
+            document.getElementById("see-more-tasks").innerHTML = "See More Tasks";
         }
         
     })
