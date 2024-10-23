@@ -7,6 +7,12 @@ body {
     background-color: #F5F5F5;
 }
 
+/* CSS FOR HOVERING */
+.side-button, .task, .see-more-tasks :hover{
+  cursor:pointer;
+}
+
+
 .welcome {
     margin-top:1.5vh;
     margin-left:2%;
@@ -88,7 +94,7 @@ body {
 
 #todo-tasks {
     width:50%;
-    float:left;
+    min-width:50%;
     
 }
 
@@ -145,10 +151,46 @@ body {
 .see-more-tasks {
     text-decoration:underline;
     text-align:center;
-    display:none;
 }
 
+#detailed-task * {
+  text-align:center;
+}
 
+#detailed-task-title {
+  padding-top:10%;
+  font-size:3em;
+  font-weight:600;
+}
 
+#detailed-task-description {
+  font-size:1.5em;
+}
 
+#detailed-task-due {
+  font-size:1.5em;
+}
 
+#detailed-task-status {
+  font-size:1.5em;
+}
+
+#detailed-task-status span {
+  color:blue;
+}
+
+#detailed-task-assigner {
+  font-size:1.5em;
+}
+
+.detailed-task-complete {
+  background:grey;
+  font-size:1.5em;
+  padding:0.5em;
+  width:50%;
+  border-radius:10em;
+}
+
+.detailed-task-complete:hover {
+  cursor:pointer;
+}
