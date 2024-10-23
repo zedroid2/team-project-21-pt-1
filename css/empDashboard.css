@@ -110,7 +110,7 @@ body {
 /* CSS for each individual task*/
 
 .tasks {
-    height:87.5%;
+    max-height:87.5%;
     background-color:none;
 }
 
@@ -145,6 +145,7 @@ body {
 .see-more-tasks {
     text-decoration:underline;
     text-align:center;
+    display:none;
 }
 
 
