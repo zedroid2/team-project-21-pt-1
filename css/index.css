@@ -18,33 +18,51 @@ body {
 
 #login {
     background-color: #f4d06f;
-    padding: 40px;
+    padding: 45px;
     border-radius: 40px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 500px;
+    width: 40vh;
+    min-height: 16vh; 
+    max-height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: height 0.3s ease; /* Smooth transition for height */
 }
 
 label {
+    position: relative;
     font-size: 18px;
     font-weight: bold;
+    margin-top: 20px;
     margin-bottom: 10px;
     display: block;
 }
 
 input {
+    position: relative;
+    overflow: hidden;
     padding: 10px;
     border-radius: 20px;
     border: 1px solid #ccc;
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     box-sizing: border-box;
     outline: none;
     font-size: 16px;
     text-align: center;
 }
 
-button {
+#email-error {
+    color: red;
+    margin-bottom: 10px;
+    height: 10px;
+}
+
+button,
+input[type="submit"]{
+    position: relative;
     padding: 10px 20px;
     background-color: white;
     border: none;
@@ -53,24 +71,36 @@ button {
     font-size: 16px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
+    margin-top: 15px;
+    width: fit-content;
+    max-width: 40%;
 }
 
-button:hover {
-    background-color: #eee;
+button:hover,
+input[type="submit"]{
+    background-color: lightgrey;
 }
-
 
 #password-container {
     position: relative;
+    margin-top: -5%;
 }
 
 #tglePwd {
     position: absolute;
-    left: 460px; 
-    top: 27%;
+    left: 94%; 
+    top: 28%;
     cursor: pointer;
     width: 15px;
     height: 15px;
-    pointer-events: all; /*Clicks only work on the checkbox*/
+    pointer-events: all;
 }
 
+
+input::placeholder {
+  color: grey; /* Default placeholder color */
+}
+
+input.error::placeholder {
+  color: red; /* Change to red for errors */
+}
