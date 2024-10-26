@@ -1,15 +1,18 @@
 const emails = {
     "abhay@make-it-all.co.uk":"#Abhay123",
     "charlie@make-it-all.co.uk":"#Charlie123",
-    "christo@make-it-all.co.uk":"#Christo123"
+    "christo@make-it-all.co.uk":"#Christo123",
+    "bob@make-it-all.co.uk":""
 };
 localStorage.setItem("abhay@make-it-all.co.uk", JSON.stringify(["#Abhay123", "Employee"]));
 localStorage.setItem("charlie@make-it-all.co.uk", JSON.stringify(["#Charlie123", "Employee"]));
 localStorage.setItem("christo@make-it-all.co.uk", JSON.stringify(["#Christo123", "Employee"]));
 localStorage.setItem("dragos@make-it-all.co.uk", JSON.stringify(["#Dragos123", "Employee"]));
 localStorage.setItem("jevan@make-it-all.co.uk", JSON.stringify(["#Jevan123", "Employee"]));
-localStorage.setItem("kieran@make-it-all.co.uk", JSON.stringify(["#Kieran123", "Employee"]));
 localStorage.setItem("nishad@make-it-all.co.uk", JSON.stringify(["#Nishad123", "Employee"]));
+localStorage.setItem("kieran@make-it-all.co.uk", JSON.stringify(["#Kieran123", "Employee"]));
+localStorage.setItem("bob@make-it-all.co.uk", JSON.stringify(["", "Employee"]));
+
 
 //to do tasks: Title, importance, description, 
 let tasks1 = [
@@ -832,11 +835,23 @@ function submitEmail() {
     let email = document.getElementById("email").value;
 
     if (localStorage.getItem(email) != null) {
-        // make the password visible
+        document.getElementById("email").readOnly = true;
+      
+        // make the password box visible
         document.getElementById("password-container").style.display = "block";
         document.getElementById("email-submit").style.display = "none";
+        
+        // resets email container
+        document.getElementById("email").style.borderColor = "";
+        document.getElementById("email-error").innerText = "";
+    } else {
+        // Invalid email catch
+        document.getElementById("email").style.borderColor = "red";
+        document.getElementById("email-error").innerText = "Please provide a valid email.";
     }
 }
+
+
 
 function togglePassword() {
     let x = document.getElementById("password");
@@ -848,16 +863,21 @@ function togglePassword() {
 }
 
 function login(event) {
-event.preventDefault();
+  event.preventDefault();
 
-let email = document.getElementById("email").value;
-let password = document.getElementById("password").value;
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("password").value;
 
-if (emails[email] === password) {
-    localStorage.setItem("current_user", email);
-    console.log(localStorage.getItem("current_user"))
-    window.location.replace("empDashboard.html");
-} else {
-    console.log("incorrect login");
-}
+  if (emails[email] === password) {
+      localStorage.setItem("current_user", email);
+      window.location.replace("empDashboard.html");
+  } else {
+      // Incorrect password catch
+      let passwordField = document.getElementById("password");
+      passwordField.value = ""; // Clear the input
+      passwordField.placeholder = "Wrong Password";
+      passwordField.style.borderColor = "red";
+      passwordField.classList.add("error"); // Add error class to apply red color
+    
+  }
 }
