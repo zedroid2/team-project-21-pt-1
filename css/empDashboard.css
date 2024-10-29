@@ -1,217 +1,250 @@
-*{
-    margin:0 auto;
+* {
+    margin: 0;
     color: #353535;
 }
 
-body {
+html, body {
     background-color: #F5F5F5;
 }
 
 /* CSS FOR HOVERING */
-.side-button, .task :hover{
-  cursor:pointer;
-}
-
-.header-container {
-    display:flex
-}
-
-.welcome {
-    flex-grow:1;
-    margin-top:1.5vh;
-    margin-left:2%;
-}
-
-.welcome h1 {
-    font-size:4em;
-}
-
-.welcome #date {
-    font-size:3em;
-    margin-top:0vh;
-}
-
-.account {
-    width:7.5%;
-    height:7.5vw;
-    border-radius:15em;
-    margin-right:2%;
-    margin-top:1.25%;
-    background-color:#F2D87B;
-    text-align:center;
-    font-size:6em;
-}
-
-.account:hover {
-    cursor:pointer;
+.side-button, .task:hover {
+    cursor: pointer;
 }
 
 .container {
-    width:96%;
-    display:flex;
-    margin:auto;
-    margin-top:2vh;
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    margin: auto;
 }
 
-.halves {
-    height:80vh;
+.side-navbar {
+    width: 20%;
+    height: 100vh;
+    background-color: lightgrey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
-#side-buttons {
-    /*background-color: black;*/
-    width:30%;
-    margin-right: 2%;
+.navbar-logo {
+    width: 80%;
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 .side-button {
-    width:100%;
-    background-color: #F2D87B;
-    height:calc(0.221789 * 80vh);
-    margin:auto;
-    border-radius:10em;
-    margin-bottom: calc(0.0376 * 80vh);
-    
+    width: 100%;
+    height: auto;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    transition: background-color 0.3s;
 }
 
+.left-content {
+    display: flex;
+    align-items: center;
+}
+
+/* Align "Project History" at the bottom of navbar */
+#project-history {
+    margin-top: 80%; /* Pushes the button to the bottom */
+}
+
+/* Icon Styling */
+.icon {
+    font-size: 2em;
+    margin-right: 10px;
+}
+
+/* Side Button Text Styling */
 .side-button-text {
-    height:100%;
-    width:100%;
-    display:flex;
-    justify-content: center;
-    align-items:center;
-    font-size:3em;
+    font-size: 1.5em;
 }
 
-#todo {
-    background-color:#EFBB00;
-    float:right;
+.shortcut {
+    font-size: 1em;
+    color: #353535;
+    margin-left: auto; /* Push shortcut to the right */
+}
+
+.side-button:hover {
+    background-color: blue;
+}
+
+/* Main Content */
+.main-content {
     flex-grow: 1;
-    border-radius:7.5vh;
-    display:flex;
+    display: flex;
+    flex-direction: column;
 }
 
+/* Header Container */
+.header-container {
+    display: flex;
+    padding: 20px;
+    background-color: #e7e7e7;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.welcome {
+    flex-grow: 1;
+    margin-top: 1.5vh;
+    margin-left: 2%;
+}
+
+.welcome h1 {
+    font-size: 2.5em;
+}
+
+.welcome #date {
+    font-size: 1.5em;
+    margin-top: 0vh;
+}
+
+.account {
+    width: 7.5%;
+    border-radius: 15em;
+    margin-right: 2%;
+    margin-top: 1.25%;
+    background-color: #F2D87B;
+    text-align: center;
+    font-size: 2.5em;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#profilePicture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.account:hover {
+    cursor: pointer;
+}
+
+/* Todo Container */
+.todo {
+    display: flex;
+    flex-grow: 1;
+    padding: 20px;
+    background: linear-gradient(to bottom, #e7e7e7, #696969); /* Light grey to dark grey gradient */
+}
+
+/* Todo Tasks and Details */
+.todo-tasks, .detailed-task {
+    flex: 1;
+    margin: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* Todo Header */
 #todo-header {
-    background-color:none;
-    height:12.5%;
-    display:flex;
-}
-
-#todo-history-button {
-    width:3vw;
-    margin-right:5%;
-    margin-top:4vh;
+    height: 12.5%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
 }
 
 #todo-header h1 {
-    font-size:4em;
-    font-weight:700;
-    width:50%;
-    flex-grow:1;
-    margin-left:3.5vh;
-    margin-top:2.5vh;
+    font-size: 2em;
+    font-weight: 700;
+    flex-grow: 1;
 }
 
-#todo-tasks {
-    width:50%;
-    min-width:50%;
-    
+#todo-history-button {
+    width: 3vw;
+    margin-right: 5%;
 }
 
-.vertical-seperator {
-    width:2px;
-    background-color:grey;
-    height:90%;
-    border-radius:10em;
-    margin-top:3%;
-    opacity:0.2;
-}
-
-.detailed-task {
-    height:100%;
-    flex-grow:1;
-}
-
-
-/* CSS for each individual task*/
-
+/* Tasks */
 .tasks {
-    max-height:87.5%;
-    background-color:none;
+    max-height: 87.5%;
+    overflow-y: auto;
 }
 
 .task {
-    background-color:none;
-    display:flex;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    margin-bottom: 1vh;
 }
 
 .todo-task-importance {
-    padding:5%;
+    padding: 5%;
 }
 
 .todo-task-importance-inner {
-    width:0.5em;
-    height:0.5em;
-    border-radius:0.5em;
-    background-color:red;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
+    background-color: red;
 }
 
 .todo-task-title {
-    font-size:1.75em;
-    flex-grow:1;
-    padding:3%;
+    font-size: 1.75em;
+    flex-grow: 1;
+    padding: 3%;
 }
 
 .todo-task-date {
-    width:20%;
-    font-size:1.5em;
-    padding:3.5%;
+    width: 20%;
+    font-size: 1.5em;
+    padding: 3.5%;
 }
 
 .see-more-tasks {
-    text-decoration:underline;
-    text-align:center;
+    text-decoration: underline;
+    text-align: center;
 }
 
+/* Detailed Task */
 #detailed-task * {
-  text-align:center;
+    text-align: center;
 }
 
 #detailed-task-title {
-  padding-top:10%;
-  font-size:3em;
-  font-weight:600;
+    padding-top: 10%;
+    font-size: 3em;
+    font-weight: 600;
 }
 
-#detailed-task-description {
-  font-size:1.5em;
-}
-
-#detailed-task-due {
-  font-size:1.5em;
-}
-
-#detailed-task-status {
-  font-size:1.5em;
+#detailed-task-description,
+#detailed-task-due,
+#detailed-task-status,
+#detailed-task-assigner {
+    font-size: 1.5em;
 }
 
 #detailed-task-status span {
-  color:blue;
-}
-
-#detailed-task-assigner {
-  font-size:1.5em;
+    color: blue;
 }
 
 .detailed-task-complete {
-  background:grey;
-  font-size:1.5em;
-  padding:0.5em;
-  width:50%;
-  border-radius:10em;
+    background: grey;
+    font-size: 1.5em;
+    padding: 0.5em;
+    width: 50%;
+    border-radius: 10em;
+    text-align: center;
+    margin-top: 1em;
 }
 
 .detailed-task-complete:hover {
-  cursor:pointer;
+    cursor: pointer;
 }
-
-
