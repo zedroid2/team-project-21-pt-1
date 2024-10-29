@@ -1,0 +1,25 @@
+* {
+    margin: 0 auto;
+  }
+  
+  .main-dashboard {
+    width:100%;
+    display:flex;
+  }
+  
+  .thirds {
+    flex:1;
+    height:100vh;
+  }
+  
+  #projects-view {
+    background-color:pink;
+  }
+  
+  #todo {
+    background-color:green;
+  }
+  
+  #detailed-task {
+    background-color:yellow;
+  }
