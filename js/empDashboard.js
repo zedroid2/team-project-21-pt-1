@@ -1,14 +1,7 @@
 function loadFunctions() {
     setNameAndDate();
     getTasks();
-    checkLogin();
-}
-
-function checkLogin() {
-    let currentUser = localStorage.getItem("current_user");
-    if (currentUser == "" || currentUser == null) {
-        window.location.replace("index.html");
-    }
+    setManagerButton();
 }
 
 function setNameAndDate() {
@@ -28,18 +21,21 @@ function setNameAndDate() {
     }
     name.innerHTML = email.substring(0,email.indexOf("@"));
     date.innerHTML = new Date().toLocaleDateString("en-GB");
-
-    // set the initial of the account:
-    document.getElementById("account").innerHTML = name.substring(0,1);
 }
 
 function getTasks() {
     // get tasks as json string from local storage
-    let currentUser = localStorage.getItem("current_user");
-    console.log
+    let currentUserEmail = localStorage.getItem("current_user");
+    let currentUser = currentUserEmail.substring(0,currentUserEmail.indexOf("@"));
+    console.log(currentUser);
+    /*
+    Worked for tasks being stored per person - now stored as projects
+    
     let taskString = localStorage.getItem(currentUser.substring(0,currentUser.indexOf("@"))); // CHANGE TO BE DYNAMIC
     // parse tasks to get json response
-    let tasks = JSON.parse(taskString);
+    let tasks = JSON.parse(taskString);*/
+  
+    let projects = JSON.parse(localStorage.getItem("projects"));
 
     // get the div where the tasks will be shown
     let tasksHTML = document.getElementById("tasks");
@@ -47,35 +43,36 @@ function getTasks() {
     // array for the colors of importance:
     let importanceColors = {1:"red", 2:"yellow", 3:"green"};
 
-    console.log(tasks);
+    console.log(projects);
     // remove all innerhtml to avoid misuse
     tasksHTML.innerHTML = "";
 
-    tasks.forEach((task,index) => {
-        // detect overflow and add see more tasks button
-        // need to compare #tasks height(which has a predetermined)
-        // height of 0, to #todo-tasks wrapper
-        let tasksHeight = tasksHTML.clientHeight;
-        let todoTasksHeight = document.getElementById("todo-tasks").clientHeight;
-        console.log("tasksHeight: " + tasksHeight + ", todoTasksHeight: " + todoTasksHeight);
-        // make sure the task is not yet completed too
-        if (tasksHeight+40 < todoTasksHeight*0.8 && task.active == true) {
-            console.log(index);
-            tasksHTML.innerHTML += `
-            <div class="task" id="task${index}" onclick="taskClick(event)">
-                <div class="todo-task-importance">
-                    <div class="todo-task-importance-inner" id="importance1" style="${importanceColors[task.importance]}"></div>
+    projects.forEach((project,pindex) => {
+        project.tasks.forEach((task,tindex) => {
+            // detect overflow and add see more tasks button
+            // need to compare #tasks height(which has a predetermined)
+            // height of 0, to #todo-tasks wrapper
+            let tasksHeight = tasksHTML.clientHeight;
+            let todoTasksHeight = document.getElementById("todo-tasks").clientHeight;
+            console.log("tasksHeight: " + tasksHeight + ", todoTasksHeight: " + todoTasksHeight);
+            // make sure the task is not yet completed too, and belongs to the current user
+            if (tasksHeight+40 < todoTasksHeight*0.8 && task.active == true && task.assignee == currentUser) {
+                console.log(tindex);
+                tasksHTML.innerHTML += `
+                <div class="task" id="task${tindex}" data-project-index=${pindex} data-task-index=${tindex} onclick="taskClick(event)">
+                    <div class="todo-task-importance">
+                        <div class="todo-task-importance-inner" id="importance1" style="${importanceColors[task.importance]}"></div>
+                    </div>
+                    <div class="todo-task-title">${task.title}</div>
+                    <div class="todo-task-date">${task.due}</div>
                 </div>
-                <div class="todo-task-title">${task.title}</div>
-                <div class="todo-task-date">${task.due}</div>
-            </div>
-            ` 
-        } else {
-            //else create see more tasks
-            console.log("else activated");
-            document.getElementById("see-more-tasks").innerHTML = "See More Tasks";
-        }
-        
+                ` 
+            } else {
+                //else create see more tasks
+                console.log("else activated");
+                document.getElementById("see-more-tasks").innerHTML = "See More Tasks";
+            }
+        })    
     })
 }
 
@@ -86,8 +83,8 @@ function taskClick(event) {
     // Displaying info to the right of the task list
     let detailedTask = document.getElementById("detailed-task");
     // clear the placeholder text:
-  let temp = document.getElementById("detailed-task-placeholder");
-  console.log(temp);
+    let temp = document.getElementById("detailed-task-placeholder");
+    console.log(temp);
     document.getElementById("detailed-task-placeholder").style.display = "none";
 
     // make the detailed info visible:
@@ -104,9 +101,19 @@ function taskClick(event) {
     // get individual task details:
     let taskIndex = parseInt(task.id.substring(4))
     // * get the tasks from local storage
+    /*
+    Used to be tasks by user, now tasks by project
+    
     let currentUser = localStorage.getItem("current_user");
-    let tasks = JSON.parse(localStorage.getItem(currentUser.substring(0,currentUser.indexOf("@"))));
-    let wantedTask = tasks[taskIndex];
+    let tasks = JSON.parse(localStorage.getItem(currentUser.substring(0,currentUser.indexOf("@"))));*/
+    // get projects
+    let projects = JSON.parse(localStorage.getItem("projects"));
+  
+    //* get the HTML tag's project index and task index
+    let pindex = task.dataset.projectIndex;
+    let tindex = task.dataset.taskIndex;
+    
+    let wantedTask = projects[pindex].tasks[tindex];
     console.log(wantedTask);
 
     document.getElementById("detailed-task-inner").innerHTML = `
@@ -143,4 +150,15 @@ function taskCompleted(event) {
     // window reload
     location.reload();
   
+}
+
+function setManagerButton() {
+  // get current user details:
+    let user = localStorage.getItem("current_user");
+    let access = JSON.parse(localStorage.getItem(user));
+    if (!(access[1] == "Manager" || access[1] == "Leader")) {
+        console.log(access[1]);
+        // get manager button element
+        document.getElementById("manager-button").style.display = "none";
+    }
 }

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/md.js" defer></script>
+    <link rel="stylesheet" href="css/md.css">
+  <link rel="stylesheet" href="css/ALL.css">
+</head>
+<body onload="onloadFunctions()">
+    <div class="main-dashboard" id="main-dashboard">
+        <div class="projects-view thirds" id="projects-view">
+          <div class="projects-header" id="projects-header">
+                <h1>Projects</h1>
+            </div>
+            <ul class="projects" id="projects">
+              
+          </ul>
+          <div id="create-project">
+            project name:<input type="text" name="project-name" id="project-name">
+            leader name:<input type="text" name="leader" id="leader-name">
+            <button type="button" id="create-project-button" onclick="createProject()">
+              Create Project
+            </button>
+          </div>
+        </div>
+        <div class="thirds" id="todo">
+            <div class="todo-tasks" id="todo-tasks">
+                <div id="todo-header">
+                    <h1>To Do Tasks</h1>
+                </div>
+                <div class="tasks" id="tasks">
+                    <!--<div class="task" id="task1">
+                        <div class="todo-task-importance">
+                            <div class="todo-task-importance-inner" id="importance1"></div>
+                        </div>
+                        <div class="todo-task-title">Task 1 title</div>
+                        <div class="todo-task-date">22/10/24</div>
+                    </div>-->
+                </div>
+                <div class="see-more-tasks" id="see-more-tasks">
+                    See More Tasks
+                </div>
+                <div id="create-task">
+                  Create task for project<br />
+                  assignee:<input type="text" name="assignee" id="assignee"><br />
+                  title:<input type="text" name="title" id="title"><br />
+                  importance:<select name="importance" id="importance"><br />
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                  </select>
+                  description:<input type="text" name="description" id="description"><br />
+                  date:<input type="date" name="date" id="date"><br />
+
+                  <button type="button" id="create-task-btn" onclick="createTaskForProject(event)">
+                    Create task
+                  </button>
+              </div>
+            </div>
+        </div>
+        <div class="detailed-task thirds" id="detailed-task">
+            <p id="detailed-task-placeholder" style="text-align:center;margin-top:50%;font-weight:600; font-size:1.25em;">Click a task to see its details</p>
+            <div id="detailed-task-inner">
+              <ul id="task-info">
+                
+              </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
