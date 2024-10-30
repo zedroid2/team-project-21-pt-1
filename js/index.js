@@ -983,7 +983,7 @@ function login(event) {
     if (emails[email] === password) {
         localStorage.setItem("current_user", email);
         console.log(localStorage.getItem("current_user"))
-        window.location.href = ("team-project-21-pt-1/empDashboard.html");
+        window.location.href = ("empDashboard.html");
     } else {
         console.log("incorrect login");
     }
