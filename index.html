@@ -1,30 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/index.css" />
     <script src="js/index.js"></script>
     <title>Login</title>
-  </head>
-  <body>
-    <h1 id="welcomeText">Welcome!</h1>
-    <div class="login" id="login">
-      <form onsubmit="return login(event)">
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" />
-        <p id="email-error" style="color:red;"></p>
-        
-        <button type="button" value="Continue" id="email-submit" onclick="submitEmail()">Submit</button>
-
-        <div id="password-container" style="display: none">
-          <label for="password">Password</label>
-          <input type="password" name="password" id="password" placeholder="Enter your password" />
-          <input type="checkbox" onclick="togglePassword()" id="tglePwd" />
-          <input type="submit" value="Log in" />
-          <p id="password-error" style="color: red;"></p>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="https://cdn.glitch.global/b2b6a711-beed-4ef5-97c5-c23044caac21/makeItAllLogo.png?v=1729946371230" alt="Make-It-All Logo" />
         </div>
-      </form>
+        <div class="login" id="login">
+            <form onsubmit="return login(event)">
+                <input type="email" name="email" id="email" placeholder="Enter Email" />
+                <p id="email-error"></p>
+
+                <button type="button" id="email-submit" onclick="submitEmail()">Login</button>
+
+                <div id="password-container" style="display: none">
+                    <div class="password-wrapper">
+                        <input type="password" name="password" id="password" placeholder="Enter Password" />
+                        <button type="button" onclick="togglePassword()" id="togglePwd">👁️</button>
+                    </div>
+                    <input type="submit" value="Login" />
+                    <p id="password-error"></p>
+                </div>
+
+                <!-- New onboarding fields -->
+                <div id="onboarding-container" style="display: none">
+                    <input type="password" id="new-password" placeholder="Create Password" />
+                    <input type="password" id="confirm-password" placeholder="Confirm Password" />
+                    <p id="password-match-error" style="color: red; margin-top: 5px;"></p> <!-- Error message below the confirm password box -->
+                    <button type="button" onclick="createPassword()">Create Password</button>
+                </div>
+            </form>
+        </div>
     </div>
-  </body>
+</body>
 </html>
