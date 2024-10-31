@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/ALL.css">
     <link rel="stylesheet" href="css/empDashboard.css">
-    <script src="js/empDashboard.js"></script>
+    <script src="js/empDashboard.js" defer></script>
     <title>Document</title>
 </head>
 <body onload="loadFunctions()">
@@ -29,13 +29,15 @@
                 </div>
                 <div class="shortcut">⇧S</div>
             </div>
-            <div class="side-button" id="team">
+            <div class="side-button" id="team" onclick="toggleDropdown()">
                 <div class="left-content">
                     <div class="icon">👥</div>
                     <div class="side-button-text">Team Members</div>
                 </div>
                 <div class="shortcut">⇧M</div>
             </div>
+            <!-- Dropdown container for projects -->
+            <div id="project-dropdown" class="dropdown-content" style="display: none;"></div>
             <div class="side-button" id="employee-form">
                 <div class="left-content">
                     <div class="icon">📝</div>
@@ -85,6 +87,17 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+  
+    <!-- Popup Modal -->
+    <div id="project-popup-overlay" class="popup-overlay" onclick="togglePopup(false)">
+        <div id="project-popup" class="popup-content">
+            <span class="close-button" onclick="togglePopup(false)">&times;</span>
+            <h2 id="popup-project-title">Project Name</h2>
+            <p>Manager: <span id="popup-manager"></span></p>
+            <p>Team Leader: <span id="popup-leader"></span></p>
+            <p>Employees: <span id="popup-employees"></span></p>
         </div>
     </div>
 </body>
