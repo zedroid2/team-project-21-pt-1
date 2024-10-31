@@ -45,6 +45,8 @@ html, body {
     align-items: center;
     padding: 10px 0;
     transition: background-color 0.3s;
+  
+    position:relative;
 }
 
 .left-content {
@@ -77,6 +79,27 @@ html, body {
 .side-button:hover {
     background-color: blue;
 }
+
+/* Dropdown Styling */
+.dropdown-content {
+    display: none; /* Initially hidden */
+    width: 100%; /* Match width of the sidebar */
+    background-color: #9f9f9f;
+    padding: 10px 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    margin-top: -5px;
+}
+
+.project {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.project:hover {
+    background-color: #e6c76b; /* Hover effect */
+}
+
 
 /* Main Content */
 .main-content {
@@ -248,3 +271,38 @@ html, body {
 .detailed-task-complete:hover {
     cursor: pointer;
 }
+
+
+/* Popup Overlay */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+/* Popup Content */
+#project-popup {
+    position: absolute;
+    display: block;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+    z-index: 1000;
+}
+
+/* Close Button for Popup */
+.close-button {
+    float: right;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
