@@ -144,3 +144,12 @@ function taskCompleted(event) {
     location.reload();
   
 }
+
+function openForum() {
+    window.location.href = 'forum.html';
+}
+
+function openProfile() {
+    window.location.href = 'profile.html';
+}
+  
