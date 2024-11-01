@@ -23,7 +23,7 @@ let tasks1 = [
     title: "Task A",
     importance: 1,
     description: "A detailed description of task 1 and its various requirements",
-    due: "22/10/24",
+    due: "16/06/22",
     signoff: false,
     assigner: "Charlie Wyke",
     dependancy: null
@@ -33,130 +33,130 @@ let tasks1 = [
     title: "Task 2",
     importance: 1,
     description: "A detailed description of task 2 and its various requirements",
-    due: "26/10/24",
+    due: "23/06/22",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: null  // No dependency for Abhay's first task
+    dependancy: null  
 },
 {
     assignee: "jevan",
     title: "Task 3",
     importance: 2,
     description: "A detailed description of task 3 and its various requirements",
-    due: "29/10/24",
+    due: "30/06/22",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: null  // No dependency for Jevan's first task
+    dependancy: null  
 },
 {
     assignee: "nishad",
     title: "Task 4",
     importance: 2,
     description: "A detailed description of task 4 and its various requirements",
-    due: "02/11/24",
+    due: "07/07/22",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: null  // No dependency for Nishad's first task
+    dependancy: null  
 },
 {
     assignee: "abhay",
     title: "Task 5",
     importance: 3,
     description: "A detailed description of task 5 and its various requirements",
-    due: "17/12/24",
+    due: "14/07/22",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: 1  // Depends on Task 2 (Abhay's previous task)
+    dependancy: 1  
 },
 {
     assignee: "jevan",
     title: "Task 6",
     importance: 3,
     description: "A detailed description of task 6 and its various requirements",
-    due: "26/10/24",
+    due: "21/07/22",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: 2  // Depends on Task 3 (Jevan's previous task)
+    dependancy: 2  
 },
 {
     assignee: "christo",
     title: "Task 7",
     importance: 3,
     description: "A detailed description of task 7 and its various requirements",
-    due: "26/10/24",
+    due: "28/07/22",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: 0  // Depends on Task A (Christo's previous task)
+    dependancy: 0  
 },
 {
     assignee: "nishad",
     title: "Task 8",
     importance: 1,
     description: "A detailed description of task 8 and its various requirements",
-    due: "22/10/24",
+    due: "04/08/22",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: 3  // Depends on Task 4 (Nishad's previous task)
+    dependancy: 3  
   },
   {
     assignee: "abhay",
     title: "Task 9",
     importance: 1,
     description: "A detailed description of task 9 and its various requirements",
-    due: "26/10/24",
+    due: "11/08/22",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: 4  // Depends on Task 5 (Abhay's previous task)
+    dependancy: 4  
 },
 {
     assignee: "christo",
     title: "Task 10",
     importance: 2,
     description: "A detailed description of task 10 and its various requirements",
-    due: "29/10/24",
+    due: "18/08/22",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: 6  // Depends on Task 7 (Christo's previous task)
+    dependancy: 6  
 },
 {
     assignee: "nishad",
     title: "Task 11",
     importance: 2,
     description: "A detailed description of task 11 and its various requirements",
-    due: "02/11/24",
+    due: "25/08/22",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: 7  // Depends on Task 8 (Nishad's previous task)
+    dependancy: 7  
 },
 {
     assignee: "jevan",
     title: "Task 12",
     importance: 3,
     description: "A detailed description of task 12 and its various requirements",
-    due: "17/12/24",
+    due: "01/09/24",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: 5  // Depends on Task 6 (Jevan's previous task)
+    dependancy: 5  
 },
 {
     assignee: "abhay",
     title: "Task 13",
     importance: 3,
     description: "A detailed description of task 13 and its various requirements",
-    due: "26/10/24",
+    due: "08/09/22",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: 8  // Depends on Task 9 (Abhay's previous task)
+    dependancy: 8  
 },
 {
     assignee: "christo",
     title: "Task 14",
     importance: 3,
     description: "A detailed description of task 14 and its various requirements",
-    due: "26/10/24",
+    due: "15/09/22",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: 9  // Depends on Task 10 (Christo's previous task)
+    dependancy: 9  
 }
 ]
 
@@ -166,117 +166,117 @@ let tasks2 = [
     title: "Task B",
     importance: 1,
     description: "A detailed description of task 1 and its various requirements",
-    due: "22/10/24",
+    due: "22/09/22",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: null  // No dependency for Christo's first task
+    dependancy: null 
 },
 {
     assignee: "abhay",
     title: "Task 2",
     importance: 1,
     description: "A detailed description of task 2 and its various requirements",
-    due: "26/10/24",
+    due: "29/09/22",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: null  // No dependency for Abhay's first task
+    dependancy: null  
 },
 {
     assignee: "jevan",
     title: "Task 3",
     importance: 2,
     description: "A detailed description of task 3 and its various requirements",
-    due: "29/10/24",
+    due: "06/10/22",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: null  // No dependency for Jevan's first task
+    dependancy: null 
 },
 {
     assignee: "nishad",
     title: "Task 4",
     importance: 2,
     description: "A detailed description of task 4 and its various requirements",
-    due: "02/11/24",
+    due: "13/10/22",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: null  // No dependency for Nishad's first task
+    dependancy: null  
 },
 {
     assignee: "abhay",
     title: "Task 5",
     importance: 3,
     description: "A detailed description of task 5 and its various requirements",
-    due: "17/12/24",
+    due: "20/10/22",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: 1  // Depends on Task 2 (Abhay's previous task)
+    dependancy: 1  
 },
 {
     assignee: "christo",
     title: "Task 6",
     importance: 3,
     description: "A detailed description of task 6 and its various requirements",
-    due: "26/10/24",
+    due: "27/10/22",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: 0  // Depends on Task B (Christo's previous task)
+    dependancy: 0  
 },
 {
     assignee: "jevan",
     title: "Task 7",
     importance: 3,
     description: "A detailed description of task 7 and its various requirements",
-    due: "26/10/24",
+    due: "03/11/22",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: 2  // Depends on Task 3 (Jevan's previous task)
+    dependancy: 2  
 },
 {   
     assignee: "nishad",
     title: "Task 8",
     importance: 1,
     description: "A detailed description of task 8 and its various requirements",
-    due: "22/10/24",
+    due: "10/11/22",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: 3  // Depends on Task 4 (Nishad's previous task)
+    dependancy: 3 
 },
 {
     assignee: "christo",
     title: "Task 9",
     importance: 1,
     description: "A detailed description of task 9 and its various requirements",
-    due: "26/10/24",
+    due: "17/11/22",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: 5  // Depends on Task 6 (Christo's previous task)
+    dependancy: 5  
  },
 {
     assignee: "jevan",
     title: "Task 10",
     importance: 2,
     description: "A detailed description of task 10 and its various requirements",
-    due: "29/10/24",
+    due: "24/11/22",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: 6  // Depends on Task 7 (Jevan's previous task)
+    dependancy: 6 
 },
 {
     assignee: "abhay",
     title: "Task 11",
     importance: 2,
     description: "A detailed description of task 11 and its various requirements",
-    due: "02/11/24",
+    due: "01/12/22",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: 4  // Depends on Task 5 (Abhay's previous task)
+    dependancy: 4  
 },
 {   
     assignee: "nishad",
     title: "Task 12",
     importance: 3,
     description: "A detailed description of task 12 and its various requirements",
-    due: "17/12/24",
+    due: "08/12/22",
     signoff: false,
     assigner: "Charlie Wyke",
     dependancy: 7  
@@ -286,7 +286,7 @@ let tasks2 = [
     title: "Task 13",
     importance: 3,
     description: "A detailed description of task 13 and its various requirements",
-    due: "26/10/24",
+    due: "15/12/22",
     signoff: false,
     assigner: "Charlie Wyke",
     dependancy: 10 
@@ -296,10 +296,10 @@ let tasks2 = [
     title: "Task 14",
     importance: 3,
     description: "A detailed description of task 14 and its various requirements",
-    due: "26/10/24",
+    due: "05/01/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: 8  // Depends on Task 9 (Christo's previous task)
+    dependancy: 8  
 },
 ]
 
@@ -309,97 +309,97 @@ let tasks3 = [
     title: "Task C",
     importance: 1,
     description: "A detailed description of task 1 and its various requirements",
-    due: "22/10/24",
+    due: "12/01/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: null  // No previous tasks for Nishad
+    dependancy: null  
 },
 {
     assignee: "christo",
     title: "Task 2",
     importance: 1,
     description: "A detailed description of task 2 and its various requirements",
-    due: "26/10/24",
+    due: "19/02/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: null  // No previous tasks for Christo
+    dependancy: null  
 },
 {
     assignee: "jevan",
     title: "Task 3",
     importance: 2,
     description: "A detailed description of task 3 and its various requirements",
-    due: "29/10/24",
+    due: "26/01/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: null  // No previous tasks for Jevan
+    dependancy: null  
 },
 {
     assignee: "abhay",
     title: "Task 4",
     importance: 2,
     description: "A detailed description of task 4 and its various requirements",
-    due: "02/11/24",
+    due: "02/02/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: null  // No previous tasks for Abhay
+    dependancy: null  
 },
 {
     assignee: "christo",
     title: "Task 5",
     importance: 3,
     description: "A detailed description of task 5 and its various requirements",
-    due: "17/12/24",
+    due: "09/02/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: 1  // Depends on Task 2 (Christo's previous task)
+    dependancy: 1  
 },
 {
     assignee: "jevan",
     title: "Task 6",
     importance: 3,
     description: "A detailed description of task 6 and its various requirements",
-    due: "26/10/24",
+    due: "16/02/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: 2  // Depends on Task 3 (Jevan's previous task)
+    dependancy: 2  
 },
 {
     assignee: "nishad",
     title: "Task 7",
     importance: 3,
     description: "A detailed description of task 7 and its various requirements",
-    due: "26/10/24",
+    due: "23/02/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: 0  // Depends on Task C (Nishad's previous task)
+    dependancy: 0  
 },
 {   
     assignee: "abhay",
     title: "Task 8",
     importance: 1,
     description: "A detailed description of task 8 and its various requirements",
-    due: "22/10/24",
+    due: "02/03/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: 3  // Depends on Task 4 (Abhay's previous task)
+    dependancy: 3  
 },
 {
     assignee: "jevan",
     title: "Task 9",
     importance: 1,
     description: "A detailed description of task 9 and its various requirements",
-    due: "26/10/24",
+    due: "09/03/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: 5  // Depends on Task 6 (Jevan's previous task)
+    dependancy: 5  
 },
 {
     assignee: "christo",
     title: "Task 10",
     importance: 2,
     description: "A detailed description of task 10 and its various requirements",
-    due: "29/10/24",
+    due: "16/03/23",
     signoff: false,
     assigner: "Charlie Wyke",
     dependancy: 4  
@@ -409,7 +409,7 @@ let tasks3 = [
     title: "Task 11",
     importance: 2,
     description: "A detailed description of task 11 and its various requirements",
-    due: "02/11/24",
+    due: "23/03/23",
     signoff: false,
     assigner: "Charlie Wyke",
     dependancy: 6  
@@ -419,7 +419,7 @@ let tasks3 = [
     title: "Task 12",
     importance: 3,
     description: "A detailed description of task 12 and its various requirements",
-    due: "17/12/24",
+    due: "30/03/23",
     signoff: false,
     assigner: "Charlie Wyke",
     dependancy: 8  
@@ -429,7 +429,7 @@ let tasks3 = [
     title: "Task 13",
     importance: 3,
     description: "A detailed description of task 13 and its various requirements",
-    due: "26/10/24",
+    due: "06/04/23",
     signoff: false,
     assigner: "Charlie Wyke",
     dependancy: 7  
@@ -439,7 +439,7 @@ let tasks3 = [
     title: "Task 14",
     importance: 3,
     description: "A detailed description of task 14 and its various requirements",
-    due: "26/10/24",
+    due: "20/04/23",
     signoff: false,
     assigner: "Charlie Wyke",
     dependancy: 10  
@@ -452,107 +452,107 @@ let tasks4 = [
     title: "Task D",
     importance: 1,
     description: "A detailed description of task 1 and its various requirements",
-    due: "22/10/24",
+    due: "27/04/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: null  // No previous tasks for Jevan
+    dependancy: null  
 },
 {
     assignee: "christo",
     title: "Task 2",
     importance: 1,
     description: "A detailed description of task 2 and its various requirements",
-    due: "26/10/24",
+    due: "04/05/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: null  // No previous tasks for Christo
+    dependancy: null  
 },
 {
     assignee: "jevan",
     title: "Task 3",
     importance: 2,
     description: "A detailed description of task 3 and its various requirements",
-    due: "29/10/24",
+    due: "11/05/23",
     active: true,
     assigner: "Charlie Wyke",
-    dependancy: 0  // Depends on Task D (Jevan's previous task)
+    dependancy: 0  
 },
 {
     assignee: "nishad",
     title: "Task 4",
     importance: 2,
     description: "A detailed description of task 4 and its various requirements",
-    due: "02/11/24",
+    due: "18/05/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: null  // No previous tasks for Nishad
+    dependancy: null 
 },
 {
     assignee: "abhay",
     title: "Task 5",
     importance: 3,
     description: "A detailed description of task 5 and its various requirements",
-    due: "17/12/24",
+    due: "25/05/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: null  // No previous tasks for Abhay
+    dependancy: null  
 },
 {
     assignee: "christo",
     title: "Task 6",
     importance: 3,
     description: "A detailed description of task 6 and its various requirements",
-    due: "26/10/24",
+    due: "01/06/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: 1  // Depends on Task 2 (Christo's previous task)
+    dependancy: 1  
   },
   {
     assignee: "jevan",
     title: "Task 7",
     importance: 3,
     description: "A detailed description of task 7 and its various requirements",
-    due: "26/10/24",
+    due: "08/06/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: 2  // Depends on Task 3 (Jevan's previous task)
+    dependancy: 2  
   },
   {   
     assignee: "nishad",
     title: "Task 8",
     importance: 1,
     description: "A detailed description of task 8 and its various requirements",
-    due: "22/10/24",
+    due: "15/06/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: 3  // Depends on Task 4 (Nishad's previous task)
+    dependancy: 3  
   },
   {
     assignee: "abhay",
     title: "Task 9",
     importance: 1,
     description: "A detailed description of task 9 and its various requirements",
-    due: "26/10/24",
+    due: "22/06/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: 4  // Depends on Task 5 (Abhay's previous task)
+    dependancy: 4  
   },
   {
     assignee: "christo",
     title: "Task 10",
     importance: 2,
     description: "A detailed description of task 10 and its various requirements",
-    due: "29/10/24",
+    due: "29/06/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: 5  // Depends on Task 6 (Christo's previous task)
+    dependancy: 5  
 },
 {
     assignee: "jevan",
     title: "Task 11",
     importance: 2,
     description: "A detailed description of task 11 and its various requirements",
-    due: "02/11/24",
+    due: "06/07/23",
     signoff: false,
     assigner: "Charlie Wyke",
     dependancy: 6  
@@ -562,7 +562,7 @@ let tasks4 = [
     title: "Task 12",
     importance: 3,
     description: "A detailed description of task 12 and its various requirements",
-    due: "17/12/24",
+    due: "13/07/23",
     signoff: false,
     assigner: "Charlie Wyke",
     dependancy: 7 
@@ -572,7 +572,7 @@ let tasks4 = [
     title: "Task 13",
     importance: 3,
     description: "A detailed description of task 13 and its various requirements",
-    due: "26/10/24",
+    due: "20/07/23",
     signoff: false,
     assigner: "Charlie Wyke",
     dependancy: 8 
@@ -582,7 +582,7 @@ let tasks4 = [
     title: "Task 14",
     importance: 3,
     description: "A detailed description of task 14 and its various requirements",
-    due: "26/10/24",
+    due: "27/07/23",
     signoff: false,
     assigner: "Charlie Wyke",
     dependancy: 9  
@@ -595,140 +595,140 @@ let tasks5 = [
     title: "Task E",
     importance: 1,
     description: "A detailed description of task 1 and its various requirements",
-    due: "22/10/24",
+    due: "03/08/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: null  // First task, no dependency
+    dependency: null  
 },
 {
     assignee: "christo",
     title: "Task 2",
     importance: 1,
     description: "A detailed description of task 2 and its various requirements",
-    due: "26/10/24",
+    due: "10/08/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: null  // First task, no dependency
+    dependency: null 
 },
 {
     assignee: "abhay",
     title: "Task 3",
     importance: 2,
     description: "A detailed description of task 3 and its various requirements",
-    due: "29/10/24",
+    due: "17/08/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: null  // First task, no dependency
+    dependency: null 
 },
 {
     assignee: "nishad",
     title: "Task 4",
     importance: 2,
     description: "A detailed description of task 4 and its various requirements",
-    due: "02/11/24",
+    due: "24/08/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: null  // First task, no dependency
+    dependency: null  
 },
 {
     assignee: "abhay",
     title: "Task 5",
     importance: 3,
     description: "A detailed description of task 5 and its various requirements",
-    due: "17/12/24",
+    due: "31/08/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: 2  // Dependent on Task 3 (index 2)
+    dependency: 2  
 },
 {
     assignee: "christo",
     title: "Task 6",
     importance: 3,
     description: "A detailed description of task 6 and its various requirements",
-    due: "26/10/24",
+    due: "07/09/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: 1  // Dependent on Task 2 (index 1)
+    dependency: 1  
 },
 {
     assignee: "jevan",
     title: "Task 7",
     importance: 3,
     description: "A detailed description of task 7 and its various requirements",
-    due: "26/10/24",
+    due: "14/09/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: 0  // Dependent on Task E (index 0)
+    dependency: 0  
 },
 {   
     assignee: "nishad",
     title: "Task 8",
     importance: 1,
     description: "A detailed description of task 8 and its various requirements",
-    due: "22/10/24",
+    due: "21/09/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: 3  // Dependent on Task 4 (index 3)
+    dependency: 3  
 },
 {
     assignee: "abhay",
     title: "Task 9",
     importance: 1,
     description: "A detailed description of task 9 and its various requirements",
-    due: "26/10/24",
+    due: "28/09/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: 4  // Dependent on Task 5 (index 4)
+    dependency: 4  
 },
 {
     assignee: "christo",
     title: "Task 10",
     importance: 2,
     description: "A detailed description of task 10 and its various requirements",
-    due: "29/10/24",
+    due: "05/10/24",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: 5  // Dependent on Task 6 (index 5)
+    dependency: 5  
 },
 {
     assignee: "nishad",
     title: "Task 11",
     importance: 2,
     description: "A detailed description of task 11 and its various requirements",
-    due: "02/11/24",
+    due: "12/10/24",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: 7  // Dependent on Task 8 (index 7)
+    dependency: 7  
 },
 {   
     assignee: "jevan",
     title: "Task 12",
     importance: 3,
     description: "A detailed description of task 12 and its various requirements",
-    due: "17/12/24",
+    due: "19/10/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: 6  // Dependent on Task 7 (index 6)
+    dependency: 6  
 },
 {
     assignee: "christo",
     title: "Task 13",
     importance: 3,
     description: "A detailed description of task 13 and its various requirements",
-    due: "26/10/24",
+    due: "26/10/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: 9  // Dependent on Task 10 (index 9)
+    dependency: 9  
 },
 {
     assignee: "abhay",
     title: "Task 14",
     importance: 3,
     description: "A detailed description of task 14 and its various requirements",
-    due: "26/10/24",
+    due: "02/11/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: 8  // Dependent on Task 9 (index 8)
+    dependency: 8  
 }
 ]
 
@@ -738,37 +738,37 @@ let tasks6 = [
     title: "Task F",
     importance: 1,
     description: "A detailed description of task 1 and its various requirements",
-    due: "22/10/24",
+    due: "16/11/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: null  // First task, no dependency
+    dependency: null  
 },
 {
     assignee: "jevan",
     title: "Task 2",
     importance: 1,
     description: "A detailed description of task 2 and its various requirements",
-    due: "26/10/24",
+    due: "23/11/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: null  // First task, no dependency
+    dependency: null  
 },
 {
     assignee: "nishad",
     title: "Task 3",
     importance: 2,
     description: "A detailed description of task 3 and its various requirements",
-    due: "29/10/24",
+    due: "30/11/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: null  // Dependent on Task 2 (index 1)
+    dependency: null 
 },
 {
     assignee: "christo",
     title: "Task 4",
     importance: 2,
     description: "A detailed description of task 4 and its various requirements",
-    due: "02/11/24",
+    due: "07/12/23",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: null
@@ -778,7 +778,7 @@ let tasks6 = [
     title: "Task 5",
     importance: 3,
     description: "A detailed description of task 5 and its various requirements",
-    due: "17/12/24",
+    due: "14/12/23",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: 0  
@@ -788,7 +788,7 @@ let tasks6 = [
     title: "Task 6",
     importance: 3,
     description: "A detailed description of task 6 and its various requirements",
-    due: "26/10/24",
+    due: "04/01/24",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: 3 
@@ -798,7 +798,7 @@ let tasks6 = [
     title: "Task 7",
     importance: 3,
     description: "A detailed description of task 7 and its various requirements",
-    due: "26/10/24",
+    due: "11/01/24",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: 2  
@@ -808,7 +808,7 @@ let tasks6 = [
     title: "Task 8",
     importance: 1,
     description: "A detailed description of task 8 and its various requirements",
-    due: "22/10/24",
+    due: "18/01/24",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: 1  
@@ -818,7 +818,7 @@ let tasks6 = [
     title: "Task 9",
     importance: 1,
     description: "A detailed description of task 9 and its various requirements",
-    due: "26/10/24",
+    due: "25/01/24",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: 7 
@@ -838,7 +838,7 @@ let tasks6 = [
     title: "Task 11",
     importance: 2,
     description: "A detailed description of task 11 and its various requirements",
-    due: "02/11/24",
+    due: "01/02/24",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: 9  
@@ -848,7 +848,7 @@ let tasks6 = [
     title: "Task 12",
     importance: 3,
     description: "A detailed description of task 12 and its various requirements",
-    due: "17/12/24",
+    due: "08/02/24",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: 8  
@@ -858,7 +858,7 @@ let tasks6 = [
     title: "Task 13",
     importance: 3,
     description: "A detailed description of task 13 and its various requirements",
-    due: "26/10/24",
+    due: "15/02/24",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: 8  
@@ -868,7 +868,7 @@ let tasks6 = [
     title: "Task 14",
     importance: 3,
     description: "A detailed description of task 14 and its various requirements",
-    due: "26/10/24",
+    due: "22/02/24",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: 9
@@ -881,7 +881,7 @@ let tasks7 = [
     title: "Task G",
     importance: 1,
     description: "A detailed description of task 1 and its various requirements",
-    due: "22/10/24",
+    due: "29/02/24",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: null  
@@ -891,7 +891,7 @@ let tasks7 = [
     title: "Task 2",
     importance: 1,
     description: "A detailed description of task 2 and its various requirements",
-    due: "26/10/24",
+    due: "07/03/24",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: null
@@ -901,7 +901,7 @@ let tasks7 = [
     title: "Task 3",
     importance: 2,
     description: "A detailed description of task 3 and its various requirements",
-    due: "29/10/24",
+    due: "14/03/24",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: null 
@@ -911,7 +911,7 @@ let tasks7 = [
     title: "Task 4",
     importance: 2,
     description: "A detailed description of task 4 and its various requirements",
-    due: "02/11/24",
+    due: "21/03/24",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: null  
@@ -921,7 +921,7 @@ let tasks7 = [
     title: "Task 5",
     importance: 3,
     description: "A detailed description of task 5 and its various requirements",
-    due: "17/12/24",
+    due: "28/03/24",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: 2  
@@ -931,7 +931,7 @@ let tasks7 = [
     title: "Task 6",
     importance: 3,
     description: "A detailed description of task 6 and its various requirements",
-    due: "26/10/24",
+    due: "04/04/24",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: 1  
@@ -941,7 +941,7 @@ let tasks7 = [
     title: "Task 7",
     importance: 3,
     description: "A detailed description of task 7 and its various requirements",
-    due: "26/10/24",
+    due: "11/04/24",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: 0  
@@ -951,7 +951,7 @@ let tasks7 = [
     title: "Task 8",
     importance: 1,
     description: "A detailed description of task 8 and its various requirements",
-    due: "22/10/24",
+    due: "18/04/24",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: 3  
@@ -961,7 +961,7 @@ let tasks7 = [
     title: "Task 9",
     importance: 1,
     description: "A detailed description of task 9 and its various requirements",
-    due: "26/10/24",
+    due: "25/04/24",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: 4  
@@ -971,7 +971,7 @@ let tasks7 = [
     title: "Task 10",
     importance: 2,
     description: "A detailed description of task 10 and its various requirements",
-    due: "29/10/24",
+    due: "02/05/24",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: 5  
@@ -981,7 +981,7 @@ let tasks7 = [
     title: "Task 11",
     importance: 2,
     description: "A detailed description of task 11 and its various requirements",
-    due: "02/11/24",
+    due: "09/05/24",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: 6  
@@ -991,7 +991,7 @@ let tasks7 = [
     title: "Task 12",
     importance: 3,
     description: "A detailed description of task 12 and its various requirements",
-    due: "17/12/24",
+    due: "16/05/24",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: 7  
@@ -1001,7 +1001,7 @@ let tasks7 = [
     title: "Task 13",
     importance: 3,
     description: "A detailed description of task 13 and its various requirements",
-    due: "26/10/24",
+    due: "23/05/24",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: 8 
@@ -1011,10 +1011,10 @@ let tasks7 = [
     title: "Task 14",
     importance: 3,
     description: "A detailed description of task 14 and its various requirements",
-    due: "26/10/24",
+    due: "30/05/24",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: 9  // Dependent on Task 11 (index 10)
+    dependency: 9 
 }
 ]
 
@@ -1025,7 +1025,7 @@ let tasks8 = [
     title: "Task H",
     importance: 1,
     description: "A detailed description of task H and its various requirements",
-    due: "22/10/24",
+    due: "07/06/24",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: null  
@@ -1035,7 +1035,7 @@ let tasks8 = [
     title: "Task 2",
     importance: 1,
     description: "A detailed description of task 2 and its various requirements",
-    due: "26/10/24",
+    due: "14/06/24",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: null  
@@ -1045,17 +1045,17 @@ let tasks8 = [
     title: "Task 3",
     importance: 2,
     description: "A detailed description of task 3 and its various requirements",
-    due: "29/10/24",
+    due: "21/06/24",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: null  // No dependency
+    dependency: null  
 },
 { 
     assignee: "christo",
     title: "Task 4",
     importance: 2,
     description: "A detailed description of task 4 and its various requirements",
-    due: "02/11/24",
+    due: "28/06/24",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: 1  
@@ -1075,7 +1075,7 @@ let tasks8 = [
     title: "Task 6",
     importance: 3,
     description: "A detailed description of task 6 and its various requirements",
-    due: "26/10/24",
+    due: "05/08/24",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: 2  
@@ -1085,7 +1085,7 @@ let tasks8 = [
     title: "Task 7",
     importance: 3,
     description: "A detailed description of task 7 and its various requirements",
-    due: "26/10/24",
+    due: "12/07/24",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: 0 
@@ -1095,7 +1095,7 @@ let tasks8 = [
     title: "Task 8",
     importance: 1,
     description: "A detailed description of task 8 and its various requirements",
-    due: "22/10/24",
+    due: "19/07/24",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: 3
@@ -1105,7 +1105,7 @@ let tasks8 = [
     title: "Task 9",
     importance: 1,
     description: "A detailed description of task 9 and its various requirements",
-    due: "26/10/24",
+    due: "26/07/24",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: 5  
@@ -1115,27 +1115,27 @@ let tasks8 = [
     title: "Task 10",
     importance: 2,
     description: "A detailed description of task 10 and its various requirements",
-    due: "29/10/24",
+    due: "02/08/24",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: 4  // Dependent on Task 4 (index 4)
+    dependency: 7  
 },
 { 
     assignee: "jevan",
     title: "Task 11",
     importance: 2,
     description: "A detailed description of task 11 and its various requirements",
-    due: "02/11/24",
+    due: "09/08/24",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: 7
+    dependency: 6
 },
 { 
     assignee: "nishad",
     title: "Task 12",
     importance: 3,
     description: "A detailed description of task 12 and its various requirements",
-    due: "17/12/24",
+    due: "16/08/24",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: 4  
@@ -1145,7 +1145,7 @@ let tasks8 = [
     title: "Task 13",
     importance: 3,
     description: "A detailed description of task 13 and its various requirements",
-    due: "26/10/24",
+    due: "23/08/24",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: 10  
@@ -1155,269 +1155,156 @@ let tasks8 = [
     title: "Task 14",
     importance: 3,
     description: "A detailed description of task 14 and its various requirements",
-    due: "26/10/24",
+    due: "30/08/24",
     signoff: false,
     assigner: "Charlie Wyke",
     dependency: 9 
 }
 ]
 
-let tasks9 = [
-{
-    assignee: "nishad",
-    title: "Task I",
-    importance: 1,
-    description: "A detailed description of task 1 and its various requirements",
-    due: "22/10/24",
-    signoff: false,
-    assigner: "Charlie Wyke"
-},
-{
-    assignee: "christo",
-    title: "Task 2",
-    importance: 1,
-    description: "A detailed description of task 2 and its various requirements",
-    due: "26/10/24",
-    signoff: false,
-    assigner: "Charlie Wyke"
-},
-{
-    assignee: "jevan",
-    title: "Task 3",
-    importance: 2,
-    description: "A detailed description of task 3 and its various requirements",
-    due: "29/10/24",
-    signoff: false,
-    assigner: "Charlie Wyke"
-},
-{
-    assignee: "nishad",
-    title: "Task 4",
-    importance: 2,
-    description: "A detailed description of task 4 and its various requirements",
-    due: "02/11/24",
-    signoff: false,
-    assigner: "Charlie Wyke"
-},
-{
-    assignee: "abhay",
-    title: "Task 5",
-    importance: 3,
-    description: "A detailed description of task 5 and its various requirements",
-    due: "17/12/24",
-    signoff: false,
-    assigner: "Charlie Wyke"
-},
-{
-    assignee: "christo",
-    title: "Task 6",
-    importance: 3,
-    description: "A detailed description of task 6 and its various requirements",
-    due: "26/10/24",
-    signoff: false,
-    assigner: "Charlie Wyke"
-},
-{
-    assignee: "nishad",
-    title: "Task 7",
-    importance: 3,
-    description: "A detailed description of task 7 and its various requirements",
-    due: "26/10/24",
-    signoff: false,
-    assigner: "Charlie Wyke"
-},
-{
-    assignee: "nishad"
-    title: "Task 8",
-    importance: 1,
-    description: "A detailed description of task 8 and its various requirements",
-    due: "22/10/24",
-    signoff: false,
-    assigner: "Charlie Wyke"
-},
-{
-    assignee: "abhay",
-    title: "Task 9",
-    importance: 1,
-    description: "A detailed description of task 9 and its various requirements",
-    due: "26/10/24",
-    signoff: false,
-    assigner: "Charlie Wyke"
-},
-{
-    assignee: "nishad",
-    title: "Task 10",
-    importance: 2,
-    description: "A detailed description of task 10 and its various requirements",
-    due: "29/10/24",
-    signoff: false,
-    assigner: "Charlie Wyke"
-},
-{
-    assignee: "christo",
-    title: "Task 11",
-    importance: 2,
-    description: "A detailed description of task 11 and its various requirements",
-    due: "02/11/24",
-    signoff: false,
-    assigner: "Charlie Wyke"
-},
-{
-    assignee: "nishad",
-    title: "Task 12",
-    importance: 3,
-    description: "A detailed description of task 12 and its various requirements",
-    due: "17/12/24",
-    signoff: false,
-    assigner: "Charlie Wyke"
-},
-{
-    assignee: "abhay",
-    title: "Task 13",
-    importance: 3,
-    description: "A detailed description of task 13 and its various requirements",
-    due: "26/10/24",
-    signoff: false,
-    assigner: "Charlie Wyke"
-},
-{
-    assignee: "christo",
-    title: "Task 14",
-    importance: 3,
-    description: "A detailed description of task 14 and its various requirements",
-    due: "26/10/24",
-    signoff: false,
-    assigner: "Charlie Wyke"
-}
-]
 let tasks10 = [
 {
     assignee: "nishad",
     title: "Task J",
     importance: 1,
-    description: "A detailed description of task 1 and its various requirements",
-    due: "22/10/24",
+    description: "A detailed description of task J and its various requirements",
+    due: "06/10/24",
     signoff: false,
-    assigner: "Charlie Wyke"
+    assigner: "Charlie Wyke",
+    dependency: null  
 },
 {
     assignee: "christo",
     title: "Task 2",
     importance: 1,
     description: "A detailed description of task 2 and its various requirements",
-    due: "26/10/24",
+    due: "13/09/24",
     signoff: false,
-    assigner: "Charlie Wyke"
+    assigner: "Charlie Wyke",
+    dependency: null  
 },
 {
     assignee: "abhay",
     title: "Task 3",
     importance: 2,
     description: "A detailed description of task 3 and its various requirements",
-    due: "29/10/24",
+    due: "20/09/24",
     signoff: false,
-    assigner: "Charlie Wyke"
+    assigner: "Charlie Wyke",
+    dependency: null
 },
 {
     assignee: "nishad",
     title: "Task 4",
     importance: 2,
     description: "A detailed description of task 4 and its various requirements",
-    due: "02/11/24",
+    due: "27/09/24",
     signoff: false,
-    assigner: "Charlie Wyke"
+    assigner: "Charlie Wyke",
+    dependency: 0
 },
 {
     assignee: "abhay",
     title: "Task 5",
     importance: 3,
     description: "A detailed description of task 5 and its various requirements",
-    due: "17/12/24",
+    due: "04/10/24",
     signoff: false,
-    assigner: "Charlie Wyke"
+    assigner: "Charlie Wyke",
+    dependency: 2
 },
 {
     assignee: "christo",
     title: "Task 6",
     importance: 3,
     description: "A detailed description of task 6 and its various requirements",
-    due: "26/10/24",
+    due: "11/10/24",
     signoff: false,
-    assigner: "Charlie Wyke"
+    assigner: "Charlie Wyke",
+    dependency: 1
 },
 {
     assignee: "abhay",
     title: "Task 7",
     importance: 3,
     description: "A detailed description of task 7 and its various requirements",
-    due: "26/10/24",
+    due: "18/10/24",
     signoff: false,
-    assigner: "Charlie Wyke"
+    assigner: "Charlie Wyke",
+    dependency: 2
 },
 {
-    assignee: "abhay"
+    assignee: "abhay",
     title: "Task 8",
     importance: 1,
     description: "A detailed description of task 8 and its various requirements",
-    due: "22/10/24",
+    due: "25/10/24",
     signoff: false,
-    assigner: "Charlie Wyke"
+    assigner: "Charlie Wyke",
+    dependency: 6
 },
 {
     assignee: "jevan",
     title: "Task 9",
     importance: 1,
     description: "A detailed description of task 9 and its various requirements",
-    due: "26/10/24",
+    due: "01/11/24",
     signoff: false,
-    assigner: "Charlie Wyke"
+    assigner: "Charlie Wyke",
+    dependency: null
 },
 {
     assignee: "christo",
     title: "Task 10",
     importance: 2,
     description: "A detailed description of task 10 and its various requirements",
-    due: "29/10/24",
+    due: "08/11/24",
     signoff: false,
-    assigner: "Charlie Wyke"
+    assigner: "Charlie Wyke",
+    dependency: 5
 },
 {
     assignee: "nishad",
     title: "Task 11",
     importance: 2,
     description: "A detailed description of task 11 and its various requirements",
-    due: "02/11/24",
+    due: "15/11/24",
     signoff: false,
-    assigner: "Charlie Wyke"
+    assigner: "Charlie Wyke",
+    dependency: 3
 },
 {
     assignee: "abhay",
     title: "Task 12",
     importance: 3,
     description: "A detailed description of task 12 and its various requirements",
-    due: "17/12/24",
+    due: "22/11/24",
     signoff: false,
-    assigner: "Charlie Wyke"
+    assigner: "Charlie Wyke",
+    dependency: 7
 },
 {
     assignee: "abhay",
     title: "Task 13",
     importance: 3,
     description: "A detailed description of task 13 and its various requirements",
-    due: "26/10/24",
+    due: "29/11/24",
     signoff: false,
-    assigner: "Charlie Wyke"
+    assigner: "Charlie Wyke",
+    dependency: 11  
 },
 {
     assignee: "christo",
     title: "Task 14",
     importance: 3,
     description: "A detailed description of task 14 and its various requirements",
-    due: "26/10/24",
+    due: "06/12/24",
     signoff: false,
-    assigner: "Charlie Wyke"
+    assigner: "Charlie Wyke",
+    dependency: 9
 }
 ]
+
 
 
 
