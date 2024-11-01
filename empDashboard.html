@@ -66,34 +66,38 @@
                 </div>
             </div>
             
-            <div class="todo" id="todo">
-                <div class="todo-tasks" id="todo-tasks">
-                    <div id="todo-header">
-                        <h1>To Do Tasks</h1>
-                    </div>
-                    <div class="tasks" id="tasks">
-                        <!-- Task items go here -->
-                    </div>
-                    <div class="see-more-tasks" id="see-more-tasks">
-                        See More Tasks
-                    </div>
-                </div>
-                <div class="vertical-seperator"></div>
-                <div class="detailed-task" id="detailed-task">
-                    <p id="detailed-task-placeholder" style="text-align:center;margin-top:50%;font-weight:600; font-size:1.25em;">
-                        Click a task to see its details
-                    </p>
-                    <div id="detailed-task-inner">
-                    </div>
-                </div>
-            </div>
+          <div class="todo" id="todo">
+              <div class="todo-tasks" id="todo-tasks">
+                  <div id="todo-header">
+                      <h1>Your To-Do List</h1>
+                  </div>
+                  <div class="tasks" id="tasks">
+                      <!-- Task items go here -->
+                  </div>
+                  <div class="see-more-tasks" id="see-more-tasks">
+                      See More Tasks
+                  </div>
+              </div>
+
+              <div class="vertical-separator"></div>
+
+              <!-- Overlay Detailed Task Section -->
+              <div class="detailed-task" id="detailed-task">
+                  <p id="detailed-task-placeholder" style="text-align:center;margin-top:50%;font-weight:600; font-size:1.25em;">
+                      Click a task to see its details
+                  </p>
+                  <div id="detailed-task-inner">
+                      <!-- Task details will be injected here -->
+                      <button class="close-button" onclick="hideTaskDetail()">Close</button>
+                  </div>
+              </div>
+          </div>
         </div>
     </div>
   
     <!-- Popup Modal -->
     <div id="project-popup-overlay" class="popup-overlay" onclick="togglePopup(false)">
         <div id="project-popup" class="popup-content">
-            <span class="close-button" onclick="togglePopup(false)">&times;</span>
             <h2 id="popup-project-title">Project Name</h2>
             <p>Manager: <span id="popup-manager"></span></p>
             <p>Team Leader: <span id="popup-leader"></span></p>
