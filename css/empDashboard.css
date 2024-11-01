@@ -1,3 +1,4 @@
+/* Universal Styles */
 * {
     margin: 0;
     color: #353535;
@@ -7,11 +8,7 @@ html, body {
     background-color: #F5F5F5;
 }
 
-/* CSS FOR HOVERING */
-.side-button, .task:hover {
-    cursor: pointer;
-}
-
+/* Layout Container */
 .container {
     display: flex;
     height: 100vh;
@@ -19,9 +16,10 @@ html, body {
     margin: auto;
 }
 
+/* Side Navbar */
 .side-navbar {
     width: 20%;
-    height: 100vh;
+    height: 100%;
     background-color: lightgrey;
     display: flex;
     flex-direction: column;
@@ -34,38 +32,34 @@ html, body {
     width: 80%;
     display: block;
     margin-bottom: 20px;
-    margin-top: 10px;
+    margin-top: 10%;
 }
 
 .side-button {
     width: 100%;
-    height: auto;
-    margin: 0;
+    padding: 10px 0;
     display: flex;
     align-items: center;
-    padding: 10px 0;
     transition: background-color 0.3s;
-  
-    position:relative;
+    cursor: pointer;
+    position: relative;
 }
 
+.side-button:hover {
+    background-color: blue;
+}
+
+/* Side Button Content */
 .left-content {
     display: flex;
     align-items: center;
 }
 
-/* Align "Project History" at the bottom of navbar */
-#project-history {
-    margin-top: 80%; /* Pushes the button to the bottom */
-}
-
-/* Icon Styling */
 .icon {
     font-size: 2em;
     margin-right: 10px;
 }
 
-/* Side Button Text Styling */
 .side-button-text {
     font-size: 1.5em;
 }
@@ -76,14 +70,10 @@ html, body {
     margin-left: auto; /* Push shortcut to the right */
 }
 
-.side-button:hover {
-    background-color: blue;
-}
-
 /* Dropdown Styling */
 .dropdown-content {
-    display: none; /* Initially hidden */
-    width: 100%; /* Match width of the sidebar */
+    display: none;
+    width: 100%;
     background-color: #9f9f9f;
     padding: 10px 0;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -97,9 +87,8 @@ html, body {
 }
 
 .project:hover {
-    background-color: #e6c76b; /* Hover effect */
+    background-color: #e6c76b;
 }
-
 
 /* Main Content */
 .main-content {
@@ -130,7 +119,6 @@ html, body {
 
 .welcome #date {
     font-size: 1.5em;
-    margin-top: 0vh;
 }
 
 .account {
@@ -153,6 +141,7 @@ html, body {
     object-fit: cover;
     border-radius: 50%;
 }
+
 .account:hover {
     cursor: pointer;
 }
@@ -160,18 +149,21 @@ html, body {
 /* Todo Container */
 .todo {
     display: flex;
-    flex-grow: 1;
+    position: relative;
+    height: 100%;
     padding: 20px;
-    background: linear-gradient(to bottom, #e7e7e7, #696969); /* Light grey to dark grey gradient */
+    background: linear-gradient(to bottom, #e7e7e7, #696969);
+    overflow: hidden; /* Keeps overlay contained */
 }
 
 /* Todo Tasks and Details */
-.todo-tasks, .detailed-task {
+.todo-tasks {
     flex: 1;
     margin: 10px;
-    background-color: #ffffff;
+    background-color: lightgrey;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    z-index: 1; /* Keep behind the overlay */
 }
 
 /* Todo Header */
@@ -186,11 +178,21 @@ html, body {
     font-size: 2em;
     font-weight: 700;
     flex-grow: 1;
+    text-align: center;
 }
 
-#todo-history-button {
-    width: 3vw;
-    margin-right: 5%;
+/* Task Headers */
+.task-headers {
+    display: flex;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #7b92f2;
+    text-align: left;
+}
+
+.task-header {
+    flex: 1;
+    padding: 0 10px;
 }
 
 /* Tasks */
@@ -208,20 +210,20 @@ html, body {
     margin-bottom: 1vh;
 }
 
-.todo-task-importance {
-    padding: 5%;
+.task:hover {
+    background-color: #5172f5;
 }
 
-.todo-task-importance-inner {
-    width: 0.5em;
-    height: 0.5em;
-    border-radius: 50%;
-    background-color: red;
+.todo-task-title,
+.todo-task-project,
+.todo-task-assigner,
+.todo-task-date {
+    flex: 1;
+    padding: 0 10px;
 }
 
 .todo-task-title {
     font-size: 1.75em;
-    flex-grow: 1;
     padding: 3%;
 }
 
@@ -236,22 +238,42 @@ html, body {
     text-align: center;
 }
 
-/* Detailed Task */
-#detailed-task * {
-    text-align: center;
+/* Detailed Task Overlay Styling */
+.detailed-task {
+    position: absolute;
+    right: 0;
+    border-radius: 30px;
+    width: 35%;
+    height: 89%;
+    background: grey;
+    padding: 40px;
+    z-index: 10;
+    display: none;
+    overflow-y: auto;
 }
 
+/* Show overlay when activated */
+.detailed-task.show {
+    display: block;
+}
+
+/* Detailed Task Content Styling */
 #detailed-task-title {
     padding-top: 10%;
-    font-size: 3em;
+    font-size: 2.5em;
     font-weight: 600;
+    color: #353535;
 }
 
 #detailed-task-description,
 #detailed-task-due,
 #detailed-task-status,
-#detailed-task-assigner {
-    font-size: 1.5em;
+#detailed-task-assigner,
+#detailed-task-project,
+#detailed-task-importance
+{
+    font-size: 1.25em;
+    margin-top: 20px;
 }
 
 #detailed-task-status span {
@@ -260,18 +282,27 @@ html, body {
 
 .detailed-task-complete {
     background: grey;
-    font-size: 1.5em;
-    padding: 0.5em;
-    width: 50%;
+    font-size: 1.25em;
+    padding: 0.5em 2em;
     border-radius: 10em;
     text-align: center;
-    margin-top: 1em;
-}
-
-.detailed-task-complete:hover {
+    margin-top: 20px;
     cursor: pointer;
 }
 
+.detailed-task-complete:hover {
+    background-color: darkgrey;
+}
+
+/* Close Button for Overlay */
+#closeBtn {
+    position: absolute;
+    top: 6%;
+    right: 8%;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #353535;
+}
 
 /* Popup Overlay */
 .popup-overlay {
@@ -298,11 +329,3 @@ html, body {
     text-align: center;
     z-index: 1000;
 }
-
-/* Close Button for Popup */
-.close-button {
-    float: right;
-    font-size: 1.5em;
-    cursor: pointer;
-}
-
