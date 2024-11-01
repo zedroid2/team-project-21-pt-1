@@ -24,114 +24,106 @@ function setNameAndDate() {
 }
 
 function getTasks() {
-    // get tasks as json string from local storage
+    // Get the current user's name from local storage
     let currentUserEmail = localStorage.getItem("current_user");
-    let currentUser = currentUserEmail.substring(0,currentUserEmail.indexOf("@"));
-    console.log(currentUser);
-    /*
-    Worked for tasks being stored per person - now stored as projects
-    
-    let taskString = localStorage.getItem(currentUser.substring(0,currentUser.indexOf("@"))); // CHANGE TO BE DYNAMIC
-    // parse tasks to get json response
-    let tasks = JSON.parse(taskString);*/
-  
-    let projects = JSON.parse(localStorage.getItem("projects"));
+    let currentUser = currentUserEmail.substring(0, currentUserEmail.indexOf("@"));
+    console.log("Current User:", currentUser);
 
-    // get the div where the tasks will be shown
+    // Get the div where the tasks will be shown
     let tasksHTML = document.getElementById("tasks");
 
-    // array for the colors of importance:
-    let importanceColors = {1:"red", 2:"yellow", 3:"green"};
+    // Reset the tasks HTML to include the headers
+    tasksHTML.innerHTML = `
+        <div class="task-headers">
+            <div class="task-header">Title</div>
+            <div class="task-header">Project</div>
+            <div class="task-header">Assigned By</div>
+            <div class="task-header">Due By</div>
+        </div>
+    `;
 
-    console.log(projects);
-    // remove all innerhtml to avoid misuse
-    tasksHTML.innerHTML = "";
+    let projects = JSON.parse(localStorage.getItem("projects"));
+    let importanceColors = {1: "red", 2: "yellow", 3: "green"};
+    let taskCount = 0;
 
-    projects.forEach((project,pindex) => {
-        project.tasks.forEach((task,tindex) => {
-            // detect overflow and add see more tasks button
-            // need to compare #tasks height(which has a predetermined)
-            // height of 0, to #todo-tasks wrapper
-            let tasksHeight = tasksHTML.clientHeight;
-            let todoTasksHeight = document.getElementById("todo-tasks").clientHeight;
-            console.log("tasksHeight: " + tasksHeight + ", todoTasksHeight: " + todoTasksHeight);
-            // make sure the task is not yet completed too, and belongs to the current user
-            if (tasksHeight+40 < todoTasksHeight*0.8 && task.active == true && task.assignee == currentUser) {
-                console.log(tindex);
+    projects.forEach((project, pindex) => {
+        project.tasks.forEach((task, tindex) => {
+            // Display only tasks that are active and assigned to the current user
+            if (task.active && task.assignee === currentUser) {
                 tasksHTML.innerHTML += `
-                <div class="task" id="task${tindex}" data-project-index=${pindex} data-task-index=${tindex} onclick="taskClick(event)">
-                    <div class="todo-task-importance">
-                        <div class="todo-task-importance-inner" id="importance1" style="${importanceColors[task.importance]}"></div>
+                    <div class="task" id="task${tindex}" data-project-index="${pindex}" data-task-index="${tindex}" onclick="taskClick(event)">
+                        <div class="todo-task-title">${task.title}</div>
+                        <div class="todo-task-project">${project.name}</div>
+                        <div class="todo-task-assigner">${task.assigner}</div>
+                        <div class="todo-task-date">${task.due}</div>
                     </div>
-                    <div class="todo-task-title">${task.title}</div>
-                    <div class="todo-task-date">${task.due}</div>
-                </div>
-                ` 
-            } else {
-                //else create see more tasks
-                console.log("else activated");
-                document.getElementById("see-more-tasks").innerHTML = "See More Tasks";
+                `;
+                taskCount++;
             }
-        })    
-    })
+        });
+    });
+
+    // If no tasks are assigned to the user, display a message
+    if (taskCount === 0) {
+        tasksHTML.innerHTML += `
+            <div class="no-tasks">No tasks assigned to you.</div>
+        `;
+    }
+
+    console.log("Total tasks displayed:", taskCount);
+}
+
+function taskClick(event) {
+    let task = event.currentTarget;
+    let detailedTask = document.getElementById("detailed-task");
+    let detailedTaskInner = document.getElementById("detailed-task-inner");
+    let placeholder = document.getElementById("detailed-task-placeholder");
+
+    // Show the overlay
+    detailedTask.classList.add("show");
+
+    // Hide the placeholder and show task details
+    placeholder.style.display = "none";
+    detailedTaskInner.style.display = "block";
+
+    // Populate the task details along with the close button
+    let taskIndex = parseInt(task.id.substring(4));
+    let pindex = task.dataset.projectIndex;  // Assuming project index is stored in the dataset
+    let tindex = task.dataset.taskIndex;
+    let projects = JSON.parse(localStorage.getItem("projects"));
+    let wantedTask = projects[pindex].tasks[tindex];
+
+    detailedTaskInner.innerHTML = `
+        <button class="close-btn" id="closeBtn">&times;</button> <!-- Include the close button here -->
+        <h2 id="detailed-task-title">${wantedTask.title}</h2>
+        <div id="detailed-task-project">Project: <span>${projects[pindex].name}</span></div>
+        <div id="detailed-task-assigner">Assigned by: <span>${wantedTask.assigner}</span></div>
+        <div id="detailed-task-description">Description: <span>${wantedTask.description || "No description provided."}</span></div>
+        <div id="detailed-task-importance">Importance: <span>${wantedTask.importance}</span></div>
+        <div id="detailed-task-due">Due By: <span>${wantedTask.due}</span></div>
+        <div class="detailed-task-complete" id="detailed-task-complete${taskIndex}" onclick="taskCompleted(event)">Mark as Done</div>
+    `;
+
+    // Add event listener to the close button
+    document.getElementById('closeBtn').addEventListener('click', function() {
+        detailedTask.classList.remove("show");
+        placeholder.style.display = "block"; // Optionally show placeholder again
+        detailedTaskInner.style.display = "none"; // Hide the task details
+    });
 }
 
 
-function taskClick(event) {
-    let task = event.target.parentElement;
-    console.log(task);
-    // Displaying info to the right of the task list
+function hideTaskDetail() {
     let detailedTask = document.getElementById("detailed-task");
-    // clear the placeholder text:
-    let temp = document.getElementById("detailed-task-placeholder");
-    console.log(temp);
-    document.getElementById("detailed-task-placeholder").style.display = "none";
+    let detailedTaskInner = document.getElementById("detailed-task-inner");
+    let placeholder = document.getElementById("detailed-task-placeholder");
 
-    // make the detailed info visible:
-    document.getElementById("detailed-task-inner").display = "block";
+    // Hide the overlay
+    detailedTask.classList.remove("show");
 
-    // get all the elements to change
-    /*let title = document.getElementById("detailed-task-title");
-    let description = document.getElementById("detailed-task-description");
-    let due = document.getElementById("detailed-task-due");
-    let status = document.getElementById("detailed-task-status");
-    let assigner = document.getElementById("detailed-task-aligner");
-    let completed = document.getElementById("detailed-task-complete");
-*/
-    // get individual task details:
-    let taskIndex = parseInt(task.id.substring(4))
-    // * get the tasks from local storage
-    /*
-    Used to be tasks by user, now tasks by project
-    
-    let currentUser = localStorage.getItem("current_user");
-    let tasks = JSON.parse(localStorage.getItem(currentUser.substring(0,currentUser.indexOf("@"))));*/
-    // get projects
-    let projects = JSON.parse(localStorage.getItem("projects"));
-  
-    //* get the HTML tag's project index and task index
-    let pindex = task.dataset.projectIndex;
-    let tindex = task.dataset.taskIndex;
-    
-    let wantedTask = projects[pindex].tasks[tindex];
-    console.log(wantedTask);
-
-    document.getElementById("detailed-task-inner").innerHTML = `
-    <div id="detailed-task-inner">
-        <div id="detailed-task-title">${wantedTask.title}</div>
-        <div id="detailed-task-description">${wantedTask.description}</div>
-        <div id="detailed-task-due">Due : <span>${wantedTask.due}</span></div>
-        <div id="detailed-task-status">Status : <span>${wantedTask.active}</span></div>
-        <div id="detailed-task-assigner">Assigner : <span>${wantedTask.assigner}</span></div>
-        <div class="detailed-task-complete" id="detailed-task-complete${taskIndex}" onclick="taskCompleted(event)">Completed?</div>
-    </div>
-    `
-
-    /*title.innerHTML = wantedTask.title;
-    description.innerHTML = wantedTask.description;
-    due.innerHTML = wantedTask.due;
-    status.innerHTML = wantedTask.active;
-    assigner.innerHTML = wantedTask.assigner;*/
+    // Show the placeholder and hide task details
+    placeholder.style.display = "block";
+    detailedTaskInner.style.display = "none";
 }
 
 function taskCompleted(event) {
