@@ -26,7 +26,7 @@ let tasks1 = [
     due: "16/06/22",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: null
+    dependancy: -1
 },
 {
     assignee: "Abhay",
@@ -36,7 +36,7 @@ let tasks1 = [
     due: "23/06/22",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: null  
+    dependancy: -1 
 },
 {
     assignee: "jevan",
@@ -46,7 +46,7 @@ let tasks1 = [
     due: "30/06/22",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: null  
+    dependancy: -1
 },
 {
     assignee: "nishad",
@@ -56,7 +56,7 @@ let tasks1 = [
     due: "07/07/22",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: null  
+    dependancy: -1
 },
 {
     assignee: "abhay",
@@ -169,7 +169,7 @@ let tasks2 = [
     due: "22/09/22",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: null 
+    dependancy: -1
 },
 {
     assignee: "abhay",
@@ -179,7 +179,7 @@ let tasks2 = [
     due: "29/09/22",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: null  
+    dependancy: -1 
 },
 {
     assignee: "jevan",
@@ -189,7 +189,7 @@ let tasks2 = [
     due: "06/10/22",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: null 
+    dependancy:-1
 },
 {
     assignee: "nishad",
@@ -199,7 +199,7 @@ let tasks2 = [
     due: "13/10/22",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: null  
+    dependancy: -1  
 },
 {
     assignee: "abhay",
@@ -312,7 +312,7 @@ let tasks3 = [
     due: "12/01/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: null  
+    dependancy: -1 
 },
 {
     assignee: "christo",
@@ -322,7 +322,7 @@ let tasks3 = [
     due: "19/02/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: null  
+    dependancy: -1  
 },
 {
     assignee: "jevan",
@@ -332,7 +332,7 @@ let tasks3 = [
     due: "26/01/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: null  
+    dependancy: -1 
 },
 {
     assignee: "abhay",
@@ -342,7 +342,7 @@ let tasks3 = [
     due: "02/02/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: null  
+    dependancy: -1
 },
 {
     assignee: "christo",
@@ -455,7 +455,7 @@ let tasks4 = [
     due: "27/04/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: null  
+    dependancy: -1
 },
 {
     assignee: "christo",
@@ -465,7 +465,7 @@ let tasks4 = [
     due: "04/05/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: null  
+    dependancy: -1
 },
 {
     assignee: "jevan",
@@ -485,7 +485,7 @@ let tasks4 = [
     due: "18/05/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: null 
+    dependancy: -1
 },
 {
     assignee: "abhay",
@@ -495,7 +495,7 @@ let tasks4 = [
     due: "25/05/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependancy: null  
+    dependancy: -1
 },
 {
     assignee: "christo",
@@ -598,7 +598,7 @@ let tasks5 = [
     due: "03/08/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: null  
+    dependency: -1
 },
 {
     assignee: "christo",
@@ -608,7 +608,7 @@ let tasks5 = [
     due: "10/08/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: null 
+    dependency: -1
 },
 {
     assignee: "abhay",
@@ -618,7 +618,7 @@ let tasks5 = [
     due: "17/08/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: null 
+    dependency: -1
 },
 {
     assignee: "nishad",
@@ -628,7 +628,7 @@ let tasks5 = [
     due: "24/08/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: null  
+    dependency: -1
 },
 {
     assignee: "abhay",
@@ -741,7 +741,7 @@ let tasks6 = [
     due: "16/11/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: null  
+    dependency: -1
 },
 {
     assignee: "jevan",
@@ -751,7 +751,7 @@ let tasks6 = [
     due: "23/11/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: null  
+    dependency: -1
 },
 {
     assignee: "nishad",
@@ -761,7 +761,7 @@ let tasks6 = [
     due: "30/11/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: null 
+    dependency: -1
 },
 {
     assignee: "christo",
@@ -771,7 +771,7 @@ let tasks6 = [
     due: "07/12/23",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: null
+    dependency: -1
 },
 {
     assignee: "abhay",
@@ -884,7 +884,7 @@ let tasks7 = [
     due: "29/02/24",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: null  
+    dependency: -1
 },
 {
     assignee: "christo",
@@ -894,7 +894,7 @@ let tasks7 = [
     due: "07/03/24",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: null
+    dependency: -1
 },
 {
     assignee: "abhay",
@@ -904,7 +904,7 @@ let tasks7 = [
     due: "14/03/24",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: null 
+    dependency: -1 
 },
 {
     assignee: "nishad",
@@ -914,7 +914,7 @@ let tasks7 = [
     due: "21/03/24",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: null  
+    dependency: -1
 },
 {
     assignee: "abhay",
@@ -1028,7 +1028,7 @@ let tasks8 = [
     due: "07/06/24",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: null  
+    dependency: -1
 },
 { 
     assignee: "christo",
@@ -1038,7 +1038,7 @@ let tasks8 = [
     due: "14/06/24",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: null  
+    dependency: -1
 },
 { 
     assignee: "abhay",
@@ -1048,7 +1048,7 @@ let tasks8 = [
     due: "21/06/24",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: null  
+    dependency: -1 
 },
 { 
     assignee: "christo",
@@ -1068,7 +1068,7 @@ let tasks8 = [
     due: "17/12/24",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: null
+    dependency: -1
 },
 { 
     assignee: "abhay",
@@ -1171,7 +1171,7 @@ let tasks10 = [
     due: "06/10/24",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: null  
+    dependency: -1 
 },
 {
     assignee: "christo",
@@ -1181,7 +1181,7 @@ let tasks10 = [
     due: "13/09/24",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: null  
+    dependency: -1 
 },
 {
     assignee: "abhay",
@@ -1191,7 +1191,7 @@ let tasks10 = [
     due: "20/09/24",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: null
+    dependency: -1
 },
 {
     assignee: "nishad",
@@ -1251,7 +1251,7 @@ let tasks10 = [
     due: "01/11/24",
     signoff: false,
     assigner: "Charlie Wyke",
-    dependency: null
+    dependency: -1
 },
 {
     assignee: "christo",
