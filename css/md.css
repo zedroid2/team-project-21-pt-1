@@ -1,3 +1,4 @@
+
 * {
     margin: 0 auto;
     color: #353535;
@@ -145,13 +146,14 @@
 .projects-view, .todo-tasks, .detailed-task {
     flex: 1;
     margin: 10px;
-    background-color: #F2D87B;
+    background-color: #6495ED;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 20px;
     height; 91vh;
     border-radius: 15px;
     font-weight: bold;
 }
+
 
 
 
@@ -221,8 +223,108 @@ button:hover {
     font-weight: bold;
   
 }
+.detailed-task {
+    flex: 1;
+    margin: 10px;
+    background-color: #6495ED; /* Blue background for outer container */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-#create-project label, #create-task label {
+/* Inner white box for displaying task details */
+#detailed-task-inner {
+    
+    border-radius: 10px;
+    padding: 10px;
+    
+    width: 95%; 
+    height: 85vh; 
+    overflow-y: auto; 
+}
+
+/* Placeholder text style */
+#detailed-task-placeholder {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.2em; /* Adjust font size as needed */
+    color: #353535;
+    margin: 0;
+}
+
+/* Task information list style */
+#task-info {
+    list-style: none; /* Remove bullet points */
+    padding: 0;
+    margin-top: 10px;
+    font-size: 1em;
+}
+
+/* Style individual tasks within the inner white box */
+#task-info .task {
+    background-color: #f5f5f5;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+}
+
+.task-details {
+    background-color: white; /* Ensure it stands out on the background */
+    border-radius: 10px; /* Rounded corners */
+    padding: 15px; /* Space inside the box */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.task-title {
+    font-size: 1.8em; /* Larger font for the title */
+    margin: 0; /* Remove default margin */
+}
+
+.task-assignee {
+    font-size: 1.2em; /* Slightly smaller font for the assignee */
+    margin: 0; /* Remove default margin */
+    text-align: right; /* Align text to the right */
+}
+
+.task-description {
+    margin: 10px 0; /* Space around description */
+    font-size: 1em; /* Default size */
+}
+
+.task-due {
+    margin-top: 15px; /* Space above the due date */
+    font-weight: bold; /* Bold for emphasis */
+    font-size: 1em; /* Standard size */
+}
+
+.assigned-by {
+    font-size: 1em; /* Standard font size */
+    color: #555; /* A darker color for visibility */
+    margin-bottom: 5px; /* Space below the text */
+}
+/* Add this to your CSS file or within a <style> tag in your HTML */
+
+.cursor-pointer {
+  cursor: pointer; /* Changes the cursor to a hand */
+}
+
+/* Highlight effect when hovering over the project or task items */
+li:hover { /* Light gray background on hover */
+  text-decoration: underline; /* Underline the text */
+}
+
+
+
+#create-project label, #create-task label  {
     font-weight: bold;
     margin-right: 10px;
     display: inline-block;
