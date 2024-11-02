@@ -28,61 +28,59 @@ function getTasks(event) {
   let element = event.target;
   let projectName = element.id;
   
-  // Get project exactly
+  // Get project details
   let projectsLocal = JSON.parse(localStorage.getItem("projects"));
   let pindex = projectsLocal.findIndex(project => project.name == projectName);
   let project = projectsLocal[pindex];
   
-  // Set a current global project (ease of use for creating tasks)
+  // Set a current global project index for creating tasks
   localStorage.setItem("pindex", `${pindex}`);
-  console.log(project);
   
   // Get the tasks for the project
   let tasks = project.tasks;
-  console.log(tasks);
   
-  // Get the tasks element
+  // Get the tasks HTML element and clear it for new tasks
   let tasksHTML = document.getElementById("tasks");
-  // Clear the inner HTML for the new tasks to be shown
   tasksHTML.innerHTML = "";
-  
-  // Iterate through tasks and render each one
+
+  // Iterate through tasks and render each one with importance
   tasks.forEach((task, tindex) => {
-    console.log(task);
-    tasksHTML.innerHTML += `<li class="cursor-pointer" id="${tindex}" data-pindex=${pindex} data-tindex=${tindex} onclick="getTask(event)">${task.title}
-      <ul>
-        <li>${task.due}</li>
-      </ul>
-    </li>`;
+    tasksHTML.innerHTML += `
+      <li class="cursor-pointer" id="${tindex}" data-pindex=${pindex} data-tindex=${tindex} onclick="getTask(event)">
+        ${task.title}
+        <ul>
+          <li>Assigned To: ${task.assignee}</li>
+          <li>Importance: ${task.importance}</li> <!-- Added Importance here -->
+          <li>Due: ${task.due}</li>
+        </ul>
+      </li>`;
   });
 }
 
 function getTask(event) {
-  // Get target element and project index, task index
   let element = event.target;
   let pindex = element.dataset.pindex;
   let tindex = element.dataset.tindex;
   
-  // Get the task information:
+  // Get the task information
   let task = JSON.parse(localStorage.getItem("projects"))[pindex].tasks[tindex];
   
-  // Get the html tag to add data to
+  // Get the HTML tag to add data to
   let taskInfo = document.getElementById("task-info");
   
   // Clear task info and hide the placeholder
   taskInfo.innerHTML = "";
-  document.getElementById("detailed-task-placeholder").style.display = 'none'; // Hide the placeholder text
-  
-  // New task info with updated layout
+  document.getElementById("detailed-task-placeholder").style.display = 'none';
+
+  // New task info with updated layout including Importance
   taskInfo.innerHTML = `
     <div class="task-details">
       <h2 class="task-title">${task.title}</h2>
-      <div class="assigned-to-container">
-        <span class="assigned-to">Assigned to:</span>
-        <span class="task-assignee">${task.assignee}</span>
-      </div>
+      <h3 class="task-assignee">Assigned To: ${task.assignee}</h3>
       <p class="task-description">${task.description}</p>
+      <p class="task-importance">Importance: ${task.importance}</p> <!-- Added Importance here -->
       <p class="task-due">Due: ${task.due}</p>
+
     </div>
   `;
 }
