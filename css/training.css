@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    color: #353535;
+}
+
+html, body {
+    background-color: #F5F5F5;
+}
+
+/* CSS FOR HOVERING */
+.side-button, .task:hover {
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    margin: auto;
+}
+
+.side-navbar {
+    width: 20%;
+    height: 100vh;
+    background-color: lightgrey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-logo {
+    width: 80%;
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.side-button {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    transition: background-color 0.3s;
+}
+
+.left-content {
+    display: flex;
+    align-items: center;
+}
+
+/* Align "Project History" at the bottom of navbar */
+#project-history {
+    margin-top: 80%; /* Pushes the button to the bottom */
+}
+
+/* Icon Styling */
+.icon {
+    font-size: 2em;
+    margin-right: 10px;
+}
+
+/* Side Button Text Styling */
+.side-button-text {
+    font-size: 1.5em;
+}
+
+.shortcut {
+    font-size: 1em;
+    color: #353535;
+    margin-left: auto; /* Push shortcut to the right */
+}
+
+.side-button:hover {
+    background-color: blue;
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Container */
+.header-container {
+    display: flex;
+    padding: 20px;
+    background-color: #e7e7e7;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.welcome {
+    flex-grow: 1;
+    margin-top: 1.5vh;
+    margin-left: 2%;
+}
+
+.welcome h1 {
+    font-size: 2.5em;
+}
+
+.welcome #date {
+    font-size: 1.5em;
+    margin-top: 0vh;
+}
+
+.account {
+    width: 7.5%;
+    border-radius: 15em;
+    margin-right: 2%;
+    margin-top: 1.25%;
+    background-color: #F2D87B;
+    text-align: center;
+    font-size: 2.5em;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#profilePicture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+#profilePicture-mini{
+    display:inline-block;
+    transform:translatex(0px) translatey(0px);
+    width:90px !important;
+    height:80px;
+    border-radius: 50%;
+}
+
+.account:hover {
+    cursor: pointer;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+.main-content .training-hub-heading h1{
+    position:relative;
+    left:45px;
+    top:10px;
+}
+   
+
+.container .training-topic{
+left:45px;
+top:10px;
+}
+
+.training-topic {
+    width: 80%;
+    max-width: 600px;
+    background-color: #ffecd1;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin: 15px 0;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.training-topic img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.topic-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    flex-grow: 1;
+}
+
+.subtopics {
+    margin-top: 10px;
+    font-size: 1em;
+    color: #555;
+}
