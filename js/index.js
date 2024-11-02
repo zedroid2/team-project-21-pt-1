@@ -1,15 +1,16 @@
 const emails = {
-        "abhay@make-it-all.co.uk":"#Abhay123",
-        "charlie@make-it-all.co.uk":"#Charlie123",
-        "christo@make-it-all.co.uk":"#Christo123",
-        "dragos@make-it-all.co.uk":"#Dragos123",
-        "jevan@make-it-all.co.uk":"#Jevan123",
-        "kieran@make-it-all.co.uk":"#Kieran123",
-        "nishad@make-it-all.co.uk":"#Nishad123"
-    };
+    "abhay@make-it-all.co.uk":"#Abhay123",
+    "charlie@make-it-all.co.uk":"#Charlie123",
+    "christo@make-it-all.co.uk":"#Christo123",
+    "dragos@make-it-all.co.uk":"#Dragos123",
+    "jevan@make-it-all.co.uk":"#Jevan123",
+    "kieran@make-it-all.co.uk":"#Kieran123",
+    "nishad@make-it-all.co.uk":"#Nishad123"
+};
+localStorage.setItem("ALLUSERS", JSON.stringify(emails));
 localStorage.setItem("abhay@make-it-all.co.uk", JSON.stringify(["#Abhay123", "Employee"]));
 localStorage.setItem("charlie@make-it-all.co.uk", JSON.stringify(["#Charlie123", "Leader"]))
-localStorage.setItem("christo@make-it-all.co.uk", JSON.stringify(["#Christo123", "Manager"]));
+localStorage.setItem("christo@make-it-all.co.uk", JSON.stringify(["#Christo123", "Employee"]));
 localStorage.setItem("dragos@make-it-all.co.uk", JSON.stringify(["#Dragos123", "Manager"]));
 localStorage.setItem("jevan@make-it-all.co.uk", JSON.stringify(["#Jevan123", "Employee"]))
 localStorage.setItem("kieran@make-it-all.co.uk", JSON.stringify(["#Kieran123", "Manager"]));
@@ -25,18 +26,20 @@ let tasks1 = [
     description: "A detailed description of task 1 and its various requirements",
     due: "16/06/22",
     signoff: false,
+active: false,
     assigner: "Charlie Wyke",
-    dependancy: -1
+    dependancy: null
 },
 {
-    assignee: "Abhay",
+    assignee: "abhay",
     title: "Task 2",
     importance: 1,
     description: "A detailed description of task 2 and its various requirements",
     due: "23/06/22",
     signoff: false,
+active: false,
     assigner: "Charlie Wyke",
-    dependancy: -1 
+    dependancy: null  
 },
 {
     assignee: "jevan",
@@ -45,8 +48,9 @@ let tasks1 = [
     description: "A detailed description of task 3 and its various requirements",
     due: "30/06/22",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependancy: -1
+    dependancy: null  
 },
 {
     assignee: "nishad",
@@ -55,8 +59,9 @@ let tasks1 = [
     description: "A detailed description of task 4 and its various requirements",
     due: "07/07/22",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependancy: -1
+    dependancy: null  
 },
 {
     assignee: "abhay",
@@ -65,6 +70,7 @@ let tasks1 = [
     description: "A detailed description of task 5 and its various requirements",
     due: "14/07/22",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 1  
 },
@@ -75,6 +81,7 @@ let tasks1 = [
     description: "A detailed description of task 6 and its various requirements",
     due: "21/07/22",
     signoff: false,
+active: false,
     assigner: "Charlie Wyke",
     dependancy: 2  
 },
@@ -85,6 +92,7 @@ let tasks1 = [
     description: "A detailed description of task 7 and its various requirements",
     due: "28/07/22",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 0  
 },
@@ -95,6 +103,7 @@ let tasks1 = [
     description: "A detailed description of task 8 and its various requirements",
     due: "04/08/22",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 3  
   },
@@ -105,6 +114,7 @@ let tasks1 = [
     description: "A detailed description of task 9 and its various requirements",
     due: "11/08/22",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 4  
 },
@@ -115,6 +125,7 @@ let tasks1 = [
     description: "A detailed description of task 10 and its various requirements",
     due: "18/08/22",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 6  
 },
@@ -125,6 +136,7 @@ let tasks1 = [
     description: "A detailed description of task 11 and its various requirements",
     due: "25/08/22",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 7  
 },
@@ -135,6 +147,7 @@ let tasks1 = [
     description: "A detailed description of task 12 and its various requirements",
     due: "01/09/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 5  
 },
@@ -145,6 +158,7 @@ let tasks1 = [
     description: "A detailed description of task 13 and its various requirements",
     due: "08/09/22",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 8  
 },
@@ -155,6 +169,7 @@ let tasks1 = [
     description: "A detailed description of task 14 and its various requirements",
     due: "15/09/22",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 9  
 }
@@ -168,8 +183,9 @@ let tasks2 = [
     description: "A detailed description of task 1 and its various requirements",
     due: "22/09/22",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependancy: -1
+    dependancy: null 
 },
 {
     assignee: "abhay",
@@ -178,8 +194,9 @@ let tasks2 = [
     description: "A detailed description of task 2 and its various requirements",
     due: "29/09/22",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependancy: -1 
+    dependancy: null  
 },
 {
     assignee: "jevan",
@@ -188,8 +205,9 @@ let tasks2 = [
     description: "A detailed description of task 3 and its various requirements",
     due: "06/10/22",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependancy:-1
+    dependancy: null 
 },
 {
     assignee: "nishad",
@@ -198,8 +216,9 @@ let tasks2 = [
     description: "A detailed description of task 4 and its various requirements",
     due: "13/10/22",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependancy: -1  
+    dependancy: null  
 },
 {
     assignee: "abhay",
@@ -208,6 +227,7 @@ let tasks2 = [
     description: "A detailed description of task 5 and its various requirements",
     due: "20/10/22",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 1  
 },
@@ -218,6 +238,7 @@ let tasks2 = [
     description: "A detailed description of task 6 and its various requirements",
     due: "27/10/22",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 0  
 },
@@ -228,6 +249,7 @@ let tasks2 = [
     description: "A detailed description of task 7 and its various requirements",
     due: "03/11/22",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 2  
 },
@@ -238,6 +260,7 @@ let tasks2 = [
     description: "A detailed description of task 8 and its various requirements",
     due: "10/11/22",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 3 
 },
@@ -248,6 +271,7 @@ let tasks2 = [
     description: "A detailed description of task 9 and its various requirements",
     due: "17/11/22",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 5  
  },
@@ -258,6 +282,7 @@ let tasks2 = [
     description: "A detailed description of task 10 and its various requirements",
     due: "24/11/22",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 6 
 },
@@ -268,6 +293,7 @@ let tasks2 = [
     description: "A detailed description of task 11 and its various requirements",
     due: "01/12/22",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 4  
 },
@@ -278,6 +304,7 @@ let tasks2 = [
     description: "A detailed description of task 12 and its various requirements",
     due: "08/12/22",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 7  
 },
@@ -288,6 +315,7 @@ let tasks2 = [
     description: "A detailed description of task 13 and its various requirements",
     due: "15/12/22",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 10 
 },
@@ -298,6 +326,7 @@ let tasks2 = [
     description: "A detailed description of task 14 and its various requirements",
     due: "05/01/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 8  
 },
@@ -311,8 +340,9 @@ let tasks3 = [
     description: "A detailed description of task 1 and its various requirements",
     due: "12/01/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependancy: -1 
+    dependancy: null  
 },
 {
     assignee: "christo",
@@ -321,8 +351,9 @@ let tasks3 = [
     description: "A detailed description of task 2 and its various requirements",
     due: "19/02/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependancy: -1  
+    dependancy: null  
 },
 {
     assignee: "jevan",
@@ -331,8 +362,9 @@ let tasks3 = [
     description: "A detailed description of task 3 and its various requirements",
     due: "26/01/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependancy: -1 
+    dependancy: null  
 },
 {
     assignee: "abhay",
@@ -341,8 +373,9 @@ let tasks3 = [
     description: "A detailed description of task 4 and its various requirements",
     due: "02/02/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependancy: -1
+    dependancy: null  
 },
 {
     assignee: "christo",
@@ -351,6 +384,7 @@ let tasks3 = [
     description: "A detailed description of task 5 and its various requirements",
     due: "09/02/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 1  
 },
@@ -361,6 +395,7 @@ let tasks3 = [
     description: "A detailed description of task 6 and its various requirements",
     due: "16/02/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 2  
 },
@@ -371,6 +406,7 @@ let tasks3 = [
     description: "A detailed description of task 7 and its various requirements",
     due: "23/02/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 0  
 },
@@ -381,6 +417,7 @@ let tasks3 = [
     description: "A detailed description of task 8 and its various requirements",
     due: "02/03/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 3  
 },
@@ -391,6 +428,7 @@ let tasks3 = [
     description: "A detailed description of task 9 and its various requirements",
     due: "09/03/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 5  
 },
@@ -401,6 +439,7 @@ let tasks3 = [
     description: "A detailed description of task 10 and its various requirements",
     due: "16/03/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 4  
 },
@@ -411,6 +450,7 @@ let tasks3 = [
     description: "A detailed description of task 11 and its various requirements",
     due: "23/03/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 6  
 },
@@ -421,6 +461,7 @@ let tasks3 = [
     description: "A detailed description of task 12 and its various requirements",
     due: "30/03/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 8  
 },
@@ -431,6 +472,7 @@ let tasks3 = [
     description: "A detailed description of task 13 and its various requirements",
     due: "06/04/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 7  
 },
@@ -441,6 +483,7 @@ let tasks3 = [
     description: "A detailed description of task 14 and its various requirements",
     due: "20/04/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 10  
 }
@@ -454,8 +497,9 @@ let tasks4 = [
     description: "A detailed description of task 1 and its various requirements",
     due: "27/04/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependancy: -1
+    dependancy: null  
 },
 {
     assignee: "christo",
@@ -464,8 +508,9 @@ let tasks4 = [
     description: "A detailed description of task 2 and its various requirements",
     due: "04/05/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependancy: -1
+    dependancy: null  
 },
 {
     assignee: "jevan",
@@ -484,8 +529,9 @@ let tasks4 = [
     description: "A detailed description of task 4 and its various requirements",
     due: "18/05/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependancy: -1
+    dependancy: null 
 },
 {
     assignee: "abhay",
@@ -494,8 +540,9 @@ let tasks4 = [
     description: "A detailed description of task 5 and its various requirements",
     due: "25/05/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependancy: -1
+    dependancy: null  
 },
 {
     assignee: "christo",
@@ -504,6 +551,7 @@ let tasks4 = [
     description: "A detailed description of task 6 and its various requirements",
     due: "01/06/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 1  
   },
@@ -514,6 +562,7 @@ let tasks4 = [
     description: "A detailed description of task 7 and its various requirements",
     due: "08/06/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 2  
   },
@@ -524,6 +573,7 @@ let tasks4 = [
     description: "A detailed description of task 8 and its various requirements",
     due: "15/06/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 3  
   },
@@ -534,6 +584,7 @@ let tasks4 = [
     description: "A detailed description of task 9 and its various requirements",
     due: "22/06/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 4  
   },
@@ -544,6 +595,7 @@ let tasks4 = [
     description: "A detailed description of task 10 and its various requirements",
     due: "29/06/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 5  
 },
@@ -554,6 +606,7 @@ let tasks4 = [
     description: "A detailed description of task 11 and its various requirements",
     due: "06/07/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 6  
 },
@@ -564,6 +617,7 @@ let tasks4 = [
     description: "A detailed description of task 12 and its various requirements",
     due: "13/07/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 7 
 },
@@ -574,6 +628,7 @@ let tasks4 = [
     description: "A detailed description of task 13 and its various requirements",
     due: "20/07/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 8 
 },
@@ -584,6 +639,7 @@ let tasks4 = [
     description: "A detailed description of task 14 and its various requirements",
     due: "27/07/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependancy: 9  
 }
@@ -597,8 +653,9 @@ let tasks5 = [
     description: "A detailed description of task 1 and its various requirements",
     due: "03/08/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependency: -1
+    dependency: null  
 },
 {
     assignee: "christo",
@@ -607,8 +664,9 @@ let tasks5 = [
     description: "A detailed description of task 2 and its various requirements",
     due: "10/08/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependency: -1
+    dependency: null 
 },
 {
     assignee: "abhay",
@@ -617,8 +675,9 @@ let tasks5 = [
     description: "A detailed description of task 3 and its various requirements",
     due: "17/08/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependency: -1
+    dependency: null 
 },
 {
     assignee: "nishad",
@@ -627,8 +686,9 @@ let tasks5 = [
     description: "A detailed description of task 4 and its various requirements",
     due: "24/08/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependency: -1
+    dependency: null  
 },
 {
     assignee: "abhay",
@@ -637,6 +697,7 @@ let tasks5 = [
     description: "A detailed description of task 5 and its various requirements",
     due: "31/08/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 2  
 },
@@ -647,6 +708,7 @@ let tasks5 = [
     description: "A detailed description of task 6 and its various requirements",
     due: "07/09/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 1  
 },
@@ -657,6 +719,7 @@ let tasks5 = [
     description: "A detailed description of task 7 and its various requirements",
     due: "14/09/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 0  
 },
@@ -667,6 +730,7 @@ let tasks5 = [
     description: "A detailed description of task 8 and its various requirements",
     due: "21/09/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 3  
 },
@@ -677,6 +741,7 @@ let tasks5 = [
     description: "A detailed description of task 9 and its various requirements",
     due: "28/09/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 4  
 },
@@ -687,6 +752,7 @@ let tasks5 = [
     description: "A detailed description of task 10 and its various requirements",
     due: "05/10/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 5  
 },
@@ -697,6 +763,7 @@ let tasks5 = [
     description: "A detailed description of task 11 and its various requirements",
     due: "12/10/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 7  
 },
@@ -707,6 +774,7 @@ let tasks5 = [
     description: "A detailed description of task 12 and its various requirements",
     due: "19/10/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 6  
 },
@@ -717,6 +785,7 @@ let tasks5 = [
     description: "A detailed description of task 13 and its various requirements",
     due: "26/10/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 9  
 },
@@ -727,6 +796,7 @@ let tasks5 = [
     description: "A detailed description of task 14 and its various requirements",
     due: "02/11/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 8  
 }
@@ -740,8 +810,9 @@ let tasks6 = [
     description: "A detailed description of task 1 and its various requirements",
     due: "16/11/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependency: -1
+    dependency: null  
 },
 {
     assignee: "jevan",
@@ -750,8 +821,9 @@ let tasks6 = [
     description: "A detailed description of task 2 and its various requirements",
     due: "23/11/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependency: -1
+    dependency: null  
 },
 {
     assignee: "nishad",
@@ -760,8 +832,9 @@ let tasks6 = [
     description: "A detailed description of task 3 and its various requirements",
     due: "30/11/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependency: -1
+    dependency: null 
 },
 {
     assignee: "christo",
@@ -770,8 +843,9 @@ let tasks6 = [
     description: "A detailed description of task 4 and its various requirements",
     due: "07/12/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependency: -1
+    dependency: null
 },
 {
     assignee: "abhay",
@@ -780,6 +854,7 @@ let tasks6 = [
     description: "A detailed description of task 5 and its various requirements",
     due: "14/12/23",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 0  
 },
@@ -790,6 +865,7 @@ let tasks6 = [
     description: "A detailed description of task 6 and its various requirements",
     due: "04/01/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 3 
 },
@@ -800,6 +876,7 @@ let tasks6 = [
     description: "A detailed description of task 7 and its various requirements",
     due: "11/01/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 2  
 },
@@ -810,6 +887,7 @@ let tasks6 = [
     description: "A detailed description of task 8 and its various requirements",
     due: "18/01/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 1  
 },
@@ -820,6 +898,7 @@ let tasks6 = [
     description: "A detailed description of task 9 and its various requirements",
     due: "25/01/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 7 
 },
@@ -830,6 +909,7 @@ let tasks6 = [
     description: "A detailed description of task 10 and its various requirements",
     due: "29/10/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 7  
 },
@@ -840,6 +920,7 @@ let tasks6 = [
     description: "A detailed description of task 11 and its various requirements",
     due: "01/02/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 9  
 },
@@ -850,6 +931,7 @@ let tasks6 = [
     description: "A detailed description of task 12 and its various requirements",
     due: "08/02/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 8  
 },
@@ -860,6 +942,7 @@ let tasks6 = [
     description: "A detailed description of task 13 and its various requirements",
     due: "15/02/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 8  
 },
@@ -870,6 +953,7 @@ let tasks6 = [
     description: "A detailed description of task 14 and its various requirements",
     due: "22/02/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 9
 }
@@ -883,8 +967,9 @@ let tasks7 = [
     description: "A detailed description of task 1 and its various requirements",
     due: "29/02/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependency: -1
+    dependency: null  
 },
 {
     assignee: "christo",
@@ -893,8 +978,9 @@ let tasks7 = [
     description: "A detailed description of task 2 and its various requirements",
     due: "07/03/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependency: -1
+    dependency: null
 },
 {
     assignee: "abhay",
@@ -903,8 +989,9 @@ let tasks7 = [
     description: "A detailed description of task 3 and its various requirements",
     due: "14/03/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependency: -1 
+    dependency: null 
 },
 {
     assignee: "nishad",
@@ -913,8 +1000,9 @@ let tasks7 = [
     description: "A detailed description of task 4 and its various requirements",
     due: "21/03/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependency: -1
+    dependency: null  
 },
 {
     assignee: "abhay",
@@ -923,6 +1011,7 @@ let tasks7 = [
     description: "A detailed description of task 5 and its various requirements",
     due: "28/03/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 2  
 },
@@ -933,6 +1022,7 @@ let tasks7 = [
     description: "A detailed description of task 6 and its various requirements",
     due: "04/04/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 1  
 },
@@ -943,6 +1033,7 @@ let tasks7 = [
     description: "A detailed description of task 7 and its various requirements",
     due: "11/04/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 0  
 },
@@ -953,6 +1044,7 @@ let tasks7 = [
     description: "A detailed description of task 8 and its various requirements",
     due: "18/04/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 3  
 },
@@ -963,6 +1055,7 @@ let tasks7 = [
     description: "A detailed description of task 9 and its various requirements",
     due: "25/04/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 4  
 },
@@ -973,6 +1066,7 @@ let tasks7 = [
     description: "A detailed description of task 10 and its various requirements",
     due: "02/05/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 5  
 },
@@ -983,6 +1077,7 @@ let tasks7 = [
     description: "A detailed description of task 11 and its various requirements",
     due: "09/05/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 6  
 },
@@ -993,6 +1088,7 @@ let tasks7 = [
     description: "A detailed description of task 12 and its various requirements",
     due: "16/05/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 7  
 },
@@ -1003,6 +1099,7 @@ let tasks7 = [
     description: "A detailed description of task 13 and its various requirements",
     due: "23/05/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 8 
 },
@@ -1013,6 +1110,7 @@ let tasks7 = [
     description: "A detailed description of task 14 and its various requirements",
     due: "30/05/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 9 
 }
@@ -1027,8 +1125,9 @@ let tasks8 = [
     description: "A detailed description of task H and its various requirements",
     due: "07/06/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependency: -1
+    dependency: null  
 },
 { 
     assignee: "christo",
@@ -1037,8 +1136,9 @@ let tasks8 = [
     description: "A detailed description of task 2 and its various requirements",
     due: "14/06/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependency: -1
+    dependency: null  
 },
 { 
     assignee: "abhay",
@@ -1047,8 +1147,9 @@ let tasks8 = [
     description: "A detailed description of task 3 and its various requirements",
     due: "21/06/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependency: -1 
+    dependency: null  
 },
 { 
     assignee: "christo",
@@ -1057,6 +1158,7 @@ let tasks8 = [
     description: "A detailed description of task 4 and its various requirements",
     due: "28/06/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 1  
 },
@@ -1067,8 +1169,9 @@ let tasks8 = [
     description: "A detailed description of task 5 and its various requirements",
     due: "17/12/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependency: -1
+    dependency: null
 },
 { 
     assignee: "abhay",
@@ -1077,6 +1180,7 @@ let tasks8 = [
     description: "A detailed description of task 6 and its various requirements",
     due: "05/08/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 2  
 },
@@ -1087,6 +1191,7 @@ let tasks8 = [
     description: "A detailed description of task 7 and its various requirements",
     due: "12/07/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 0 
 },
@@ -1097,6 +1202,7 @@ let tasks8 = [
     description: "A detailed description of task 8 and its various requirements",
     due: "19/07/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 3
 },
@@ -1107,6 +1213,7 @@ let tasks8 = [
     description: "A detailed description of task 9 and its various requirements",
     due: "26/07/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 5  
 },
@@ -1117,6 +1224,7 @@ let tasks8 = [
     description: "A detailed description of task 10 and its various requirements",
     due: "02/08/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 7  
 },
@@ -1127,6 +1235,7 @@ let tasks8 = [
     description: "A detailed description of task 11 and its various requirements",
     due: "09/08/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 6
 },
@@ -1137,6 +1246,7 @@ let tasks8 = [
     description: "A detailed description of task 12 and its various requirements",
     due: "16/08/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 4  
 },
@@ -1147,6 +1257,7 @@ let tasks8 = [
     description: "A detailed description of task 13 and its various requirements",
     due: "23/08/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 10  
 },
@@ -1157,6 +1268,7 @@ let tasks8 = [
     description: "A detailed description of task 14 and its various requirements",
     due: "30/08/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 9 
 }
@@ -1170,8 +1282,9 @@ let tasks10 = [
     description: "A detailed description of task J and its various requirements",
     due: "06/10/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependency: -1 
+    dependency: null  
 },
 {
     assignee: "christo",
@@ -1180,8 +1293,9 @@ let tasks10 = [
     description: "A detailed description of task 2 and its various requirements",
     due: "13/09/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependency: -1 
+    dependency: null  
 },
 {
     assignee: "abhay",
@@ -1190,8 +1304,9 @@ let tasks10 = [
     description: "A detailed description of task 3 and its various requirements",
     due: "20/09/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependency: -1
+    dependency: null
 },
 {
     assignee: "nishad",
@@ -1200,6 +1315,7 @@ let tasks10 = [
     description: "A detailed description of task 4 and its various requirements",
     due: "27/09/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 0
 },
@@ -1210,6 +1326,7 @@ let tasks10 = [
     description: "A detailed description of task 5 and its various requirements",
     due: "04/10/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 2
 },
@@ -1220,6 +1337,7 @@ let tasks10 = [
     description: "A detailed description of task 6 and its various requirements",
     due: "11/10/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 1
 },
@@ -1230,6 +1348,7 @@ let tasks10 = [
     description: "A detailed description of task 7 and its various requirements",
     due: "18/10/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 2
 },
@@ -1240,6 +1359,7 @@ let tasks10 = [
     description: "A detailed description of task 8 and its various requirements",
     due: "25/10/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 6
 },
@@ -1250,8 +1370,9 @@ let tasks10 = [
     description: "A detailed description of task 9 and its various requirements",
     due: "01/11/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
-    dependency: -1
+    dependency: null
 },
 {
     assignee: "christo",
@@ -1260,6 +1381,7 @@ let tasks10 = [
     description: "A detailed description of task 10 and its various requirements",
     due: "08/11/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 5
 },
@@ -1270,6 +1392,7 @@ let tasks10 = [
     description: "A detailed description of task 11 and its various requirements",
     due: "15/11/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 3
 },
@@ -1280,6 +1403,7 @@ let tasks10 = [
     description: "A detailed description of task 12 and its various requirements",
     due: "22/11/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 7
 },
@@ -1290,6 +1414,7 @@ let tasks10 = [
     description: "A detailed description of task 13 and its various requirements",
     due: "29/11/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 11  
 },
@@ -1300,6 +1425,7 @@ let tasks10 = [
     description: "A detailed description of task 14 and its various requirements",
     due: "06/12/24",
     signoff: false,
+active: true,
     assigner: "Charlie Wyke",
     dependency: 9
 }
@@ -1345,25 +1471,25 @@ let projects = [
     manager: "kieran",
     leader: "charlie",
     tasks: tasks6
-  }
+  },
   {
     name: "project7",
     manager: "dragos",
     leader: "charlie",
     tasks: tasks7
-  }
+  },
   {
     name: "project8",
     manager: "kieran",
     leader: "charlie",
     tasks: tasks8
-  }
-  {
+  },
+  /*{
     name: "project9",
     manager: "dragos",
     leader: "charlie",
     tasks: tasks9
-  }
+  },*/
   {
     name: "project10",
     manager: "dragos",
@@ -1404,12 +1530,12 @@ function login(event) {
     let password = document.getElementById("password").value;
 
     console.log(emails[email]);
-  console.log(emails);
-  console.log(password);
+    console.log(emails);
+    console.log(password);
     if (emails[email] === password) {
         localStorage.setItem("current_user", email);
         console.log(localStorage.getItem("current_user"))
-        window.location.replace("empDashboard.html");
+        window.location.href = ("empDashboard.html");
     } else {
         console.log("incorrect login");
     }
