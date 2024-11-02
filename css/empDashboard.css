@@ -31,6 +31,8 @@ html, body {
 .navbar-logo {
     width: 80%;
     display: block;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 20px;
     margin-top: 10%;
 }
@@ -122,7 +124,6 @@ html, body {
 }
 
 .account {
-    width: 7.5%;
     border-radius: 15em;
     margin-right: 2%;
     margin-top: 1.25%;
@@ -136,8 +137,8 @@ html, body {
 }
 
 #profilePicture {
-    width: 100%;
-    height: 100%;
+    width: 120px;
+    height: 120px;
     object-fit: cover;
     border-radius: 50%;
 }
@@ -163,7 +164,7 @@ html, body {
     background-color: lightgrey;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    z-index: 1; /* Keep behind the overlay */
+    z-index: 1;
 }
 
 /* Todo Header */
@@ -270,7 +271,8 @@ html, body {
 #detailed-task-status,
 #detailed-task-assigner,
 #detailed-task-project,
-#detailed-task-importance
+#detailed-task-importance,
+.dependency-warning
 {
     font-size: 1.25em;
     margin-top: 20px;
@@ -281,7 +283,7 @@ html, body {
 }
 
 .detailed-task-complete {
-    background: grey;
+    background: white;
     font-size: 1.25em;
     padding: 0.5em 2em;
     border-radius: 10em;
@@ -329,3 +331,5 @@ html, body {
     text-align: center;
     z-index: 1000;
 }
+
+
