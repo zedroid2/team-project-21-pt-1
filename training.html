@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/ALL.css">
+    <link rel="stylesheet" href="css/training.css">
+    <script src="js/training.js"></script>
+    <title>Document</title>
+</head>
+<body onload="loadUserProfile()">
+    <script>console.log(localStorage.getItem("current_user"))</script>
+    <div class="container">
+        <!-- Side Navbar -->
+        <nav class="side-navbar" id="side-buttons">
+            <img src="https://cdn.glitch.global/b2b6a711-beed-4ef5-97c5-c23044caac21/makeItAllLogo.png?v=1729946371230" alt="Make It All Logo" class="navbar-logo">
+
+            <div class="side-button" id="calendar" onclick="openCalendar()">
+                <div class="left-content">
+                    <div class="icon">📅</div>
+                    <div class="side-button-text">Calendar</div>
+                </div>
+                <div class="shortcut">⇧C</div>
+            </div>
+            <div class="side-button" id="training" onclick="openTraining()">
+                <div class="left-content">
+                    <div class="icon">📖</div>
+                    <div class="side-button-text">Training</div>
+                </div>
+                <div class="shortcut">⇧S</div>
+            </div>
+            <div class="side-button" id="team">
+                <div class="left-content">
+                    <div class="icon">👥</div>
+                    <div class="side-button-text">Team Members</div>
+                </div>
+                <div class="shortcut">⇧M</div>
+            </div>
+            <div class="side-button" id="employee-form" onclick="openForum()">
+                <div class="left-content">
+                    <div class="icon">📝</div>
+                    <div class="side-button-text">Employee Forum</div>
+                </div>
+                <div class="shortcut">⇧F</div>
+            </div>
+            <div class="side-button" id="project-history">
+                <div class="left-content">
+                    <div class="icon">📂</div>
+                    <div class="side-button-text">Project History</div>
+                </div>
+                <div class="shortcut">⇧H</div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <div class="header-container">
+                <div class="welcome">
+                    <h1>Welcome <span id="welcome-name"></span></h1>
+                    <h2 id="date"></h2>
+                </div>
+                <div class="account" id="account">
+                    <img src="https://cdn.glitch.global/b2b6a711-beed-4ef5-97c5-c23044caac21/makeItAllProfilePicture.png?v=1729954806402" alt="P.P" id="profilePicture" onclick="openProfile()">
+                </div>
+            </div>
+
+            <div class="training-hub-heading">
+                <h1>Make-it-All Training Hub</h1>
+            </div>
+            
+
+            <div class="training-topic" onclick="toggleSubtopics('software')">
+                <img src="images/software.svg" alt="Software Training">
+                <div class="topic-title">Software</div>
+                <div id="software" class="subtopics" style="display: none;">
+                    <p>- Introduction to Software Development</p>
+                    <p>- Software Testing Basics</p>
+                    <p>- Advanced Programming Techniques</p>
+                </div>
+            </div>
+
+            <div class="training-topic" onclick="toggleSubtopics('wellbeing')">
+                <img src="images/wellbeing.svg" alt="Wellbeing Training">
+                <div class="topic-title">Wellbeing</div>
+                <div id="wellbeing" class="subtopics" style="display: none;">
+                    <p>- Mental Health Awareness</p>
+                    <p>- Stress Management</p>
+                    <p>- Work-Life Balance</p>
+                </div>
+            </div>
+
+            <div class="training-topic" onclick="toggleSubtopics('teamworking')">
+                <img src="images/teamworking.svg" alt="Teamworking Training">
+                <div class="topic-title">Teamworking</div>
+                <div id="teamworking" class="subtopics" style="display: none;">
+                    <p>- Effective Communication</p>
+                    <p>- Conflict Resolution</p>
+                    <p>- Building Trust in Teams</p>
+                </div>
+            </div>
+        </div> 
+    </div>
+</body>
+</html>
