@@ -1,5 +1,6 @@
 function onloadFunctions() {
     getProjects();
+    prepareForms();
   }
   
   function getProjects() {
@@ -48,16 +49,31 @@ function onloadFunctions() {
     let tasksHTML = document.getElementById("tasks");
     //* clear the inner HTML for the new tasks to be shown
     tasksHTML.innerHTML = "";
+    //* re-add the placeholder text
+    document.getElementById("detailed-task-placeholder").style.opacity = "1";
+    //* remove previous task's details
+    document.getElementById("task-info").innerHTML = "";
+    console.log("clicked project");
     
     tasks.forEach((task, tindex) => {
+      // style for if awaiting approval
+      let colorChange = ""
+      if (task.active == false && task.signoff == false) {
+        colorChange = 'style="background-color:pink"';
+      } else if (task.active == false && task.signoff == true) {
+        colorChange = 'style="background-color:green"'
+      }
       console.log(task);
-      tasksHTML.innerHTML += `<li id="${tindex}" data-pindex=${pindex} data-tindex=${tindex} onclick="getTask(event)">${task.title}
+      console.log(colorChange);
+      //if (task.signoff == false) {
+        tasksHTML.innerHTML += `<li ${colorChange} id="${tindex}" data-pindex=${pindex} data-tindex=${tindex} onclick="getTask(event)">${task.title}
         <ul>
           <li>${task.assignee}</li>
           <li>${task.due}</li>
         </ul>
-      </li>
-      `;
+        </li>
+        `;
+      //}
     })
     
   }
@@ -75,8 +91,12 @@ function onloadFunctions() {
     let taskInfo = document.getElementById("task-info");
     //* clear taskinfo
     taskInfo.innerHTML = "";
+    //* hide placeholder text for detailed task
+    document.getElementById("detailed-task-placeholder").style.opacity = "0";
+    console.log("clicked task");
     
     // new task info
+    taskInfo.innerHTML = "";
     
     taskInfo.innerHTML = `
     <li>Title:${task.title}</li>
@@ -87,7 +107,25 @@ function onloadFunctions() {
     <li>Assigner:${task.assigner}</li>
     <li>Active:${task.active}</li>
     `
+    
+    // check if user has marked as complete
+    if (task.active == false) {
+      taskInfo.innerHTML += `<button data-pindex="${pindex}" data-tindex="${tindex}" type="button" onclick="confirmCompletion(event)">Confirm completion</button>`;
+    }
   }
+
+function confirmCompletion(event) {
+  const button = event.target
+  const pindex = button.dataset.pindex;
+  const tindex = button.dataset.tindex;
+  
+  let projects = JSON.parse(localStorage.getItem("projects"));
+  projects[pindex].tasks[tindex].signoff = true;
+  console.log(projects[pindex].tasks[tindex]);
+  
+  localStorage.setItem("projects", JSON.stringify(projects));
+  location.reload();
+}
   
   function createProject() {
     //get project name and leader name
@@ -141,5 +179,62 @@ function onloadFunctions() {
     projects[pindex].tasks.push(newTask);
     localStorage.setItem("projects", JSON.stringify(projects));
     location.reload();
-    
+}
+
+function getEmployees(job="", pindex=-1) {
+  if (pindex != -1) {
+    return getEmployeesPerProject(pindex);
   }
+  
+  //get all email:password for users
+  const emailPass = JSON.parse(localStorage.getItem("ALLUSERS"));
+  console.log(emailPass);
+  
+  // create return list
+  let userList = [];
+  Object.keys(emailPass).forEach((userEmail) => {
+    if (JSON.parse(localStorage.getItem(userEmail))[1].includes(job) ) {
+      userList.push(userEmail.substring(0,userEmail.indexOf("@")));
+    } 
+  })
+  return userList;
+}
+
+function getEmployeesPerProject(pindex) {
+  const projects = JSON.parse(localStorage.getItem("projects"))[pindex];
+  let userList = [];
+  // get the project we want
+  projects.tasks.forEach((task) => {
+    if (!(userList.includes(task.assignee))) {
+      userList.push(task.assignee);
+    }
+  })
+  return userList;
+}
+
+
+function prepareForms() {
+  prepareProjectForm();
+  //prepareTaskForm();
+}
+
+function prepareProjectForm() {
+  // get Team leaders as dropdown
+  const leaderSelect = document.getElementById("leader-name");
+  // clear
+  leaderSelect.innerHTML = "";
+  let allLeaders = getEmployees("Leader");
+  allLeaders.forEach((leader)=> {
+    leaderSelect.innerHTML += `
+    <option value="${leader}">${leader}</option>
+    `
+  })
+}
+
+function prepareTaskForm(pindex) {
+  // prepare the functions
+}
+
+function viewWorkload(pindex) {
+  
+}
