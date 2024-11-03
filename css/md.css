@@ -171,7 +171,7 @@
 .task {
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 40px;
     background-color: #f5f5f5;
     margin-bottom: 10px;
     border-radius: 5px;
@@ -287,6 +287,7 @@ button:hover {
 .task-title {
     font-size: 1.8em; /* Larger font for the title */
     margin: 0; /* Remove default margin */
+    font-weight: bold;
 }
 
 .task-assignee {
@@ -330,3 +331,52 @@ li:hover { /* Light gray background on hover */
     display: inline-block;
     width: 100px;
 }
+
+.projects .cursor-pointer {
+    padding: 9px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+}
+.tasks .cursor-pointer {
+    padding: 9px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+}
+
+.projects-header h1 {
+    font-weight: bold;
+}
+
+/* CSS to remove bullet points from the projects list */
+#projects {
+  list-style-type: none; /* Remove bullet points from the entire list */
+  padding-left: 0; /* Remove default padding for list */
+}
+
+#projects li {
+  list-style-type: none; /* Ensure no bullets for each list item */
+  margin-bottom: 10px; /* Adjust as needed for more or less space */
+  padding: 8px;
+  border-radius: 4px; /* Optional: rounds the edges slightly */
+}
+
+.tasks .cursor-pointer {
+    list-style-type: none; /* Remove bullet points from the entire list */
+    
+}
+
+.cursor-pointer {
+  cursor: pointer;
+  margin: 5px 0; /* Add some space between project items */
+}
+#tasks li {
+  margin: 5px 0; /* Space between task items */
+  padding: 5px;   /* Add padding inside task items for better visual */
+  border-radius: 10px; /* Optional: rounds the corners of task items */
+}
+
+
