@@ -7,6 +7,7 @@
 src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
 </script>  
   <script src="js/workload.js" defer></script>
+    <script src="js/sidebar.js" defer></script>
   <link rel="stylesheet" href="css/workload.css">
   <link rel="stylesheet" href="css/ALL.css">
     <title>Document</title>
@@ -14,16 +15,18 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
 <body onload="workloadFunctions()">
     <!-- Side Navbar -->
         <nav class="side-navbar" id="side-buttons">
-            <img src="https://cdn.glitch.global/b2b6a711-beed-4ef5-97c5-c23044caac21/makeItAllLogo.png?v=1729946371230" alt="Make It All Logo" class="navbar-logo">
+            <a href="md.html">
+                <img src="https://cdn.glitch.global/b2b6a711-beed-4ef5-97c5-c23044caac21/makeItAllLogo.png?v=1729946371230" alt="Make It All Logo" class="navbar-logo">
+            </a>
             
-            <div class="side-button" id="calendar">
+            <div class="side-button" id="calendar" onclick="openCalendar()">
                 <div class="left-content">
                     <div class="icon">📅</div>
                     <div class="side-button-text">Calendar</div>
                 </div>
                 <div class="shortcut">⇧C</div>
             </div>
-            <div class="side-button" id="training">
+            <div class="side-button" id="training" onclick="openTraining()">
                 <div class="left-content">
                     <div class="icon">📖</div>
                     <div class="side-button-text">Training</div>
@@ -37,7 +40,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
                 </div>
                 <div class="shortcut">⇧M</div>
             </div>
-            <div class="side-button" id="employee-form">
+            <div class="side-button" id="employee-form" onclick="openForum()">
                 <div class="left-content">
                     <div class="icon">📝</div>
                     <div class="side-button-text">Employee Forum</div>
