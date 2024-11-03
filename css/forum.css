@@ -1,0 +1,312 @@
+* {
+    margin: 0;
+    color: #353535;
+}
+
+html, body {
+    background-color: #F5F5F5;
+}
+
+/* CSS FOR HOVERING */
+.side-button, .task:hover {
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    margin: auto;
+}
+
+.side-navbar {
+    width: 20%;
+    height: 100vh;
+    background-color: lightgrey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-logo {
+    width: 80%;
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.side-button {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    transition: background-color 0.3s;
+}
+
+.left-content {
+    display: flex;
+    align-items: center;
+}
+
+/* Align "Project History" at the bottom of navbar */
+#project-history {
+    margin-top: 80%; /* Pushes the button to the bottom */
+}
+
+/* Icon Styling */
+.icon {
+    font-size: 2em;
+    margin-right: 10px;
+}
+
+/* Side Button Text Styling */
+.side-button-text {
+    font-size: 1.5em;
+}
+
+.shortcut {
+    font-size: 1em;
+    color: #353535;
+    margin-left: auto; /* Push shortcut to the right */
+}
+
+.side-button:hover {
+    background-color: blue;
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Container */
+.header-container {
+    display: flex;
+    padding: 20px;
+    background-color: #e7e7e7;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.welcome {
+    flex-grow: 1;
+    margin-top: 1.5vh;
+    margin-left: 2%;
+}
+
+.welcome h1 {
+    font-size: 2.5em;
+}
+
+.welcome #date {
+    font-size: 1.5em;
+    margin-top: 0vh;
+}
+
+.account {
+    width: 7.5%;
+    border-radius: 15em;
+    margin-right: 2%;
+    margin-top: 1.25%;
+    background-color: #F2D87B;
+    text-align: center;
+    font-size: 2.5em;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#profilePicture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.account:hover {
+    cursor: pointer;
+}
+
+/* Forum main section */
+.forum-section {
+    flex-grow: 1;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-left-width:0px;
+    width:1095px;
+    overflow:hidden;
+    position:relative;
+    left:9px;
+    height:538px;
+    border-top-left-radius:15px;
+}
+
+/* Forum header */
+#forum-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background-color: #F2D87B;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+#forum-header h1 {
+    font-size: 2em;
+    font-weight: bold;
+    flex-grow: 1;
+    margin: 0;
+}
+
+#forum-header input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#forum-header button {
+    padding: 10px 20px;
+    background-color: #353535;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#forum-header button:hover {
+    background-color: #0056b3;
+}
+
+/* Search bar styling */
+.search-bar {
+    display: flex;
+    gap: 0px;
+}
+
+#searchInput{
+    border-width:0px !important;
+    border-bottom-width:0px;
+    min-height:19px;
+    margin-bottom:0px;
+   }
+
+.search-bar select, .search-bar input[type="text"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Topics and Posts section styling */
+.forum-topics, .forum-posts {
+    background-color: #F8F8F8;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.forum-topics h2, .forum-posts h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Topic and Post Lists */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#topicTitle{
+    width:98% !important;
+    margin-bottom:10px;
+    padding-right:8px;
+    transform:translatex(0px) translatey(0px);
+}
+
+#create-topic button{
+    transform:translatex(0px) translatey(-4px);
+   }
+
+#topicList li, #postList li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    margin-bottom: 8px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+#topicList li button{
+    width:204px;
+    margin-left:98px;
+   }
+
+#topicList li {
+    font-weight: 500;
+}
+
+#postList li {
+    font-size: 1em;
+    color: #333;
+}
+
+/* Table layout for topics */
+#topicList {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 10px;
+    font-size: 1em;
+}
+
+#topicList li {
+    display: contents; /* Allows grid layout for each row */
+}
+
+/* Input and button styling */
+textarea, input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #353535;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #forum-header {
+        flex-direction: column;
+    }
+
+    #topicList {
+        grid-template-columns: 1fr;
+    }
+}

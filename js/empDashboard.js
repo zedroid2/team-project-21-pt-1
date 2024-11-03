@@ -163,6 +163,14 @@ function taskCompleted(event) {
   
 }
 
+function openForum() {
+    window.location.href = 'forum.html';
+}
+
+function openProfile() {
+    window.location.href = 'profile.html';
+}
+
 function setManagerButton() {
   // get current user details:
     let user = localStorage.getItem("current_user");
