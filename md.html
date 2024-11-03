@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <script src="js/md.js" defer></script>
+    <script src="js/sidebar.js" defer></script>
     <link rel="stylesheet" href="css/md.css">
     <link rel="stylesheet" href="css/ALL.css">
 </head>
@@ -15,14 +16,14 @@
         <nav class="side-navbar" id="side-buttons">
             <img src="https://cdn.glitch.global/b2b6a711-beed-4ef5-97c5-c23044caac21/makeItAllLogo.png?v=1729946371230" alt="Make It All Logo" class="navbar-logo">
             
-            <div class="side-button" id="calendar">
+            <div class="side-button" id="calendar" onclick="openCalendar()">
                 <div class="left-content">
                     <div class="icon">📅</div>
                     <div class="side-button-text">Calendar</div>
                 </div>
                 <div class="shortcut">⇧C</div>
             </div>
-            <div class="side-button" id="training">
+            <div class="side-button" id="training" onclick="openTraining()">
                 <div class="left-content">
                     <div class="icon">📖</div>
                     <div class="side-button-text">Training</div>
@@ -36,7 +37,7 @@
                 </div>
                 <div class="shortcut">⇧M</div>
             </div>
-            <div class="side-button" id="employee-form">
+            <div class="side-button" id="employee-form" onclick="openForum()">
                 <div class="left-content">
                     <div class="icon">📝</div>
                     <div class="side-button-text">Employee Forum</div>
@@ -58,7 +59,7 @@
                     <h1>Welcome <span id="welcome-name"></span></h1>
                     <h2 id="md-date"></h2>
                 </div>
-                <div class="account" id="account">
+                <div class="account" id="account" onclick="openProfile()">
                     <img src="https://cdn.glitch.global/b2b6a711-beed-4ef5-97c5-c23044caac21/makeItAllProfilePicture.png?v=1729954806402" alt="P.P" id="profilePicture">
                 </div>
             </div>
