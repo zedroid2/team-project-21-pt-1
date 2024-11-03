@@ -120,7 +120,7 @@ function taskClick(event) {
         
         // Check if the dependency is not complete
         if (dependencyTask && (dependencyTask.active !== false || dependencyTask.signoff !== true)) {
-            dependencyMessage = `<div class="dependency-warning">Dependency: ${dependencyTask.title}</div>`;
+            dependencyMessage = `<div class="dependency-warning">${dependencyTask.assignee} needs to complete ${dependencyTask.title} before you can mark it as complete</div>`;
         }
     }
 
@@ -160,7 +160,14 @@ function taskCompleted(event) {
     localStorage.setItem("projects", JSON.stringify(projects));
     // window reload
     getTasks();
-  
+}
+
+function openForum() {
+    window.location.href = 'forum.html';
+}
+
+function openProfile() {
+    window.location.href = 'profile.html';
 }
 
 function setManagerButton() {

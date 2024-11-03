@@ -1,0 +1,94 @@
+* {
+  margin:0;
+}
+
+body {
+  display:flex;
+}
+
+.side-navbar {
+    width: 20%;
+    height: 95vh;
+    background-color: lightgrey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); 
+}
+
+.navbar-logo {
+    width: 80%;
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.side-button {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.side-button:hover {
+    background-color: blue;
+}
+
+.left-content {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    font-size: 2em;
+    margin-right: 10px;
+}
+
+.side-button-text {
+    font-size: 1.5em;
+}
+
+.shortcut {
+    font-size: 1em;
+    color: #353535;
+    margin-left: auto;
+}
+
+#project-history {
+    margin-top: 80%;
+}
+
+.workloads-container {
+  flex-grow:1;
+  flex-direction:column;
+  max-height:100vh;
+  width:100%;
+  overflow:scroll;
+}
+
+#workloads {
+  background-color: black;
+  
+}
+
+.canvas-wrapper {
+  flex-grow:1;
+}
+
+.chart-wrapper {
+  display:flex;
+  height:30vh;
+  width:100%;
+  background-color:green;
+}
+
+.analysis{
+  width:50%;
+  background-color:beige;
+}
+
+

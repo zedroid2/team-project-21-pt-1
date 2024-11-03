@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>  
+  <script src="js/workload.js" defer></script>
+  <link rel="stylesheet" href="css/workload.css">
+  <link rel="stylesheet" href="css/ALL.css">
+    <title>Document</title>
+</head>
+<body onload="workloadFunctions()">
+    <!-- Side Navbar -->
+        <nav class="side-navbar" id="side-buttons">
+            <img src="https://cdn.glitch.global/b2b6a711-beed-4ef5-97c5-c23044caac21/makeItAllLogo.png?v=1729946371230" alt="Make It All Logo" class="navbar-logo">
+            
+            <div class="side-button" id="calendar">
+                <div class="left-content">
+                    <div class="icon">📅</div>
+                    <div class="side-button-text">Calendar</div>
+                </div>
+                <div class="shortcut">⇧C</div>
+            </div>
+            <div class="side-button" id="training">
+                <div class="left-content">
+                    <div class="icon">📖</div>
+                    <div class="side-button-text">Training</div>
+                </div>
+                <div class="shortcut">⇧S</div>
+            </div>
+            <div class="side-button" id="team">
+                <div class="left-content">
+                    <div class="icon">👥</div>
+                    <div class="side-button-text">Team Members</div>
+                </div>
+                <div class="shortcut">⇧M</div>
+            </div>
+            <div class="side-button" id="employee-form">
+                <div class="left-content">
+                    <div class="icon">📝</div>
+                    <div class="side-button-text">Employee Forum</div>
+                </div>
+                <div class="shortcut">⇧F</div>
+            </div>
+            <div class="side-button" id="project-history">
+                <div class="left-content">
+                    <div class="icon">📂</div>
+                    <div class="side-button-text">Project History</div>
+                </div>
+                <div class="shortcut">⇧H</div>
+            </div>
+        </nav>
+  <div class="workloads-container">
+    <div id="workloads">
+      
+    </div>
+  </div>
+    
+</body>
+</html>
