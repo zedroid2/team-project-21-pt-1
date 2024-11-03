@@ -2,6 +2,7 @@ function loadFunctions() {
     setNameAndDate();
     getTasks();
     setManagerButton();
+    setProfilePic();
 }
 
 function setNameAndDate() {
@@ -21,6 +22,15 @@ function setNameAndDate() {
     }
     name.innerHTML = email.substring(0,email.indexOf("@"));
     date.innerHTML = new Date().toLocaleDateString("en-GB");
+}
+
+function setProfilePic(){
+  let currentUserEmail = localStorage.getItem("current_user");
+  let currentUser = currentUserEmail.substring(0,currentUserEmail.indexOf("@"));
+  
+  let profilePicture = document.getElementById("profilePicture");
+  profilePicture.src = `https://cdn.glitch.global/17b550eb-1a40-477b-b507-ee91e573d4c9/${currentUser}ProfilePic.jpg`;
+  
 }
 
 function getTasks() {
@@ -83,6 +93,7 @@ function getTasks() {
 }
 
 
+
 function taskClick(event) {
     let task = event.currentTarget;
     let detailedTask = document.getElementById("detailed-task");
@@ -96,22 +107,34 @@ function taskClick(event) {
     placeholder.style.display = "none";
     detailedTaskInner.style.display = "block";
 
-    // Populate the task details along with the close button
-    let taskIndex = parseInt(task.id.substring(4));
-    let pindex = task.dataset.projectIndex;  // Assuming project index is stored in the dataset
-    let tindex = task.dataset.taskIndex;
+    let pindex = task.dataset.projectIndex;  // Get the project index
+    let tindex = task.dataset.taskIndex;      // Get the task index
     let projects = JSON.parse(localStorage.getItem("projects"));
-    let wantedTask = projects[pindex].tasks[tindex];
+    let wantedTask = projects[pindex].tasks[tindex]; // Retrieve the correct task
 
+    // Check if there is an unmet dependency
+    let dependencyMessage = "";
+    if (wantedTask.dependency !== null && wantedTask.dependency !== undefined) {
+        let dependencyIndex = wantedTask.dependency;
+        let dependencyTask = projects[pindex].tasks[dependencyIndex];
+        
+        // Check if the dependency is not complete
+        if (dependencyTask && (dependencyTask.active !== false || dependencyTask.signoff !== true)) {
+            dependencyMessage = `<div class="dependency-warning">${dependencyTask.assignee} needs to complete ${dependencyTask.title} before you can mark it as complete</div>`;
+        }
+    }
+
+    // Populate the task details
     detailedTaskInner.innerHTML = `
-        <button class="close-btn" id="closeBtn">&times;</button> <!-- Include the close button here -->
+        <button class="close-btn" id="closeBtn">&times;</button>
         <h2 id="detailed-task-title">${wantedTask.title}</h2>
         <div id="detailed-task-project">Project: <span>${projects[pindex].name}</span></div>
         <div id="detailed-task-assigner">Assigned by: <span>${wantedTask.assigner}</span></div>
         <div id="detailed-task-description">Description: <span>${wantedTask.description || "No description provided."}</span></div>
         <div id="detailed-task-importance">Importance: <span>${wantedTask.importance}</span></div>
         <div id="detailed-task-due">Due By: <span>${wantedTask.due}</span></div>
-        <div data-pindex="${pindex}" data-tindex="${tindex}" class="detailed-task-complete" id="detailed-task-complete${taskIndex}" onclick="taskCompleted(event)">Mark as Done</div>
+        ${dependencyMessage || `<div data-pindex="${pindex}" data-tindex="${tindex}" class="detailed-task-complete" 
+             id="detailed-task-complete${tindex}" onclick="taskCompleted(event)">Mark as Done</div>`}
     `;
 
     // Add event listener to the close button
@@ -120,7 +143,6 @@ function taskClick(event) {
         placeholder.style.display = "block"; // Optionally show placeholder again
         detailedTaskInner.style.display = "none"; // Hide the task details
     });
-    getTasks();
 }
 
 function taskCompleted(event) {
@@ -207,4 +229,126 @@ function displayProjectDetails(project, projectElement) {
 function togglePopup(show) {
     const overlay = document.getElementById('project-popup-overlay');
     overlay.style.display = show ? 'flex' : 'none';
+}
+
+
+
+
+// Toggle visibility of the project history dropdown
+function toggleProjectHistoryDropdown() {
+    let dropdown = document.getElementById("project-history-dropdown");
+    dropdown.style.display = dropdown.style.display === "none" ? "block" : "none";
+}
+
+// Populate the project history dropdown with projects that have completed and signed-off tasks
+function populateProjectHistoryDropdown() {
+    let currentUserEmail = localStorage.getItem("current_user");
+    let currentUser = currentUserEmail.substring(0, currentUserEmail.indexOf("@"));
+    let projects = JSON.parse(localStorage.getItem("projects"));
+    
+    let dropdown = document.getElementById("project-history-dropdown");
+    dropdown.innerHTML = ""; // Clear any existing entries
+
+    let hasHistory = false;
+
+    projects.forEach((project, pindex) => {
+        // Check if the project contains any tasks that meet the criteria
+        let hasCompletedTasks = project.tasks.some(task => 
+            task.active === false && 
+            task.signoff === true && 
+            task.assignee === currentUser
+        );
+
+        if (hasCompletedTasks) {
+            hasHistory = true;
+
+            // Add project to dropdown
+            let projectItem = document.createElement("div");
+            projectItem.className = "dropdown-item project"; // Added project class
+            projectItem.innerText = project.name || `Project ${pindex + 1}`;
+            projectItem.onclick = () => showCompletedTasks(pindex);
+            dropdown.appendChild(projectItem);
+        }
+    });
+
+    // If no history is found, show "No history" message
+    if (!hasHistory) {
+        let noHistoryItem = document.createElement("div");
+        noHistoryItem.className = "dropdown-item";
+        noHistoryItem.innerText = "No history";
+        dropdown.appendChild(noHistoryItem);
+    }
+}
+
+// Display completed tasks for the selected project
+function showCompletedTasks(projectIndex) {
+    let currentUserEmail = localStorage.getItem("current_user");
+    let currentUser = currentUserEmail.substring(0, currentUserEmail.indexOf("@"));
+    let projects = JSON.parse(localStorage.getItem("projects")) || [];
+    let project = projects[projectIndex];
+    
+    let tasksHTML = document.getElementById("tasks");
+    
+    // Array for the colors of importance:
+    let importanceColors = {1: "red", 2: "yellow", 3: "green"};
+
+    // Reset the tasks HTML to include the headers
+    tasksHTML.innerHTML = `
+        <div class="task-headers">
+            <div class="task-header">Title</div>
+            <div class="task-header">Project</div>
+            <div class="task-header">Assigned By</div>
+            <div class="task-header">Due By</div>
+        </div>
+    `;
+
+    let taskCount = 0;
+
+    // Filter and display completed and signed-off tasks for the current user
+    project.tasks.forEach((task, tindex) => {
+        if (task.active === false && task.signoff === true && task.assignee === currentUser) {
+            tasksHTML.innerHTML += `
+                <div class="task" id="task${tindex}" 
+                     data-project-index="${projectIndex}" 
+                     data-task-index="${tindex}" 
+                     style="background-color:pink" 
+                     onclick="taskClick(event)">
+                    <div class="todo-task-title">${task.title}</div>
+                    <div class="todo-task-project">${project.name}</div>
+                    <div class="todo-task-assigner">${task.assigner}</div>
+                    <div class="todo-task-date">${task.due}</div>
+                </div>
+            `;
+            taskCount++;
+        }
+    });
+
+    // If no completed tasks are found, display a message
+    if (taskCount === 0) {
+        tasksHTML.innerHTML += `
+            <div class="no-tasks">No completed tasks assigned to you.</div>
+        `;
+    }
+    navigateToProjectHistory();
+}
+
+// Call this function when the page loads to populate the project history dropdown
+populateProjectHistoryDropdown();
+
+function navigateToTasks() {
+    const header = document.getElementById("todo-header");
+    const tasksScreen = document.getElementById("tasks");
+    
+    // Change the header to "Your To-Do List" when navigating to tasks
+    header.querySelector('h1').innerText = "Your To-Do List";
+    tasksScreen.scrollIntoView({ behavior: "smooth" });
+}
+
+function navigateToProjectHistory() {
+    const header = document.getElementById("todo-header");
+    
+    // Change the header to "Project History" when navigating to project history
+    header.querySelector('h1').innerText = "Project History";
+    const projectHistoryScreen = document.getElementById("project-history-dropdown"); // Change this to the correct ID for the project history section
+    projectHistoryScreen.scrollIntoView({ behavior: "smooth" });
 }
