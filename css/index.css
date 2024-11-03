@@ -1,76 +1,119 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #d3d3d3; /* Background color similar to the image */
     margin: 0;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 90vh;
 }
 
-#welcomeText {
-    font-size: 34px;
-    color: #4a4a4a;
+.container {
     text-align: center;
-    margin-bottom: 20px;
 }
 
-#login {
-    background-color: #f4d06f;
-    padding: 40px;
-    border-radius: 40px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 500px;
-}
-
-label {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    display: block;
-}
-
-input {
-    padding: 10px;
-    border-radius: 20px;
-    border: 1px solid #ccc;
+.logo img {
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 20%;
+}
+
+.login {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
     box-sizing: border-box;
-    outline: none;
     font-size: 16px;
     text-align: center;
 }
 
-button {
+#password-match-error {
+    color: red;
+    margin-top: 5px; /* Space above the error message */
+}
+
+
+/* Error styles */
+.error {
+    border: 1px solid red; /* Red border for errors */
+}
+
+/* Placeholder color for error state */
+.error::placeholder {
+    color: red;
+    opacity: 1; /* Ensure visibility */
+}
+
+#email-error, #password-error, #error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: -8px;
+    margin-bottom: 10px;
+}
+
+button,
+input[type="submit"] {
+    background-color: #333333;
+    color: #ffffff;
     padding: 10px 20px;
-    background-color: white;
     border: none;
-    border-radius: 20px;
+    border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
     transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #eee;
+button:hover,
+input[type="submit"]:hover {
+    background-color: #555555;
 }
-
 
 #password-container {
+    margin-top: 15px;
+}
+
+/* Password container with relative positioning */
+.password-wrapper {
     position: relative;
+    width: 100%;
 }
 
-#tglePwd {
+input[type="password"],
+input[type="text"] {
+    width: 100%;
+    padding: 10px 40px 10px 10px; /* Keep padding on the right for toggle button */
+    margin-top: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Toggle button styling */
+#togglePwd {
     position: absolute;
-    left: 460px; 
-    top: 27%;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px; /* Set fixed width */
+    height: 24px; /* Set fixed height */
+    background-color: transparent;
+    border: none;
     cursor: pointer;
-    width: 15px;
-    height: 15px;
-    pointer-events: all; /*Clicks only work on the checkbox*/
+    font-size: 16px;
+    color: #333333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-

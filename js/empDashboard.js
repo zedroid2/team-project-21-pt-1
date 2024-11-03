@@ -160,7 +160,6 @@ function taskCompleted(event) {
     localStorage.setItem("projects", JSON.stringify(projects));
     // window reload
     getTasks();
-  
 }
 
 function openForum() {

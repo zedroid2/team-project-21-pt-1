@@ -13,7 +13,9 @@
     <div class="container">
         <!-- Side Navbar -->
         <nav class="side-navbar" id="side-buttons">
-            <img src="https://cdn.glitch.global/b2b6a711-beed-4ef5-97c5-c23044caac21/makeItAllLogo.png?v=1729946371230" alt="Make It All Logo" class="navbar-logo">
+            <a href="javascript:void(0);" id="logo-link" onclick="getTasks()">
+                <img src="https://cdn.glitch.global/b2b6a711-beed-4ef5-97c5-c23044caac21/makeItAllLogo.png?v=1729946371230" alt="Make It All Logo" class="navbar-logo">
+            </a>
 
             <div class="side-button" id="calendar">
                 <div class="left-content">
@@ -38,20 +40,21 @@
             </div>
             <!-- Dropdown container for projects -->
             <div id="project-dropdown" class="dropdown-content" style="display: none;"></div>
-            <div class="side-button" id="employee-form" onclick="openForum()">
+            <div class="side-button" id="employee-form">
                 <div class="left-content">
                     <div class="icon">📝</div>
                     <div class="side-button-text">Employee Forum</div>
                 </div>
                 <div class="shortcut">⇧F</div>
             </div>
-            <div class="side-button" id="project-history">
-                <div class="left-content">
-                    <div class="icon">📂</div>
-                    <div class="side-button-text">Project History</div>
-                </div>
-                <div class="shortcut">⇧H</div>
-            </div>
+          <div class="side-button" id="project-history" onclick="toggleProjectHistoryDropdown()">
+              <div class="left-content">
+                  <div class="icon">📂</div>
+                  <div class="side-button-text">Project History</div>
+              </div>
+              <div class="shortcut">⇧H</div>
+          </div>
+          <div id="project-history-dropdown" class="dropdown-content" style="display: none;"></div>
         </nav>
         
         <!-- Main Content Area -->
@@ -61,8 +64,8 @@
                     <h1>Welcome <span id="welcome-name"></span></h1>
                     <h2 id="date"></h2>
                 </div>
-                <div class="account" id="account" onclick="openProfile()">
-                    <img src="https://cdn.glitch.global/b2b6a711-beed-4ef5-97c5-c23044caac21/makeItAllProfilePicture.png?v=1729954806402" alt="P.P" id="profilePicture">
+                <div class="account" id="account">
+                    <img alt="P.P" id="profilePicture">
                 </div>
             </div>
             
@@ -73,9 +76,6 @@
                   </div>
                   <div class="tasks" id="tasks">
                       <!-- Task items go here -->
-                  </div>
-                  <div class="see-more-tasks" id="see-more-tasks">
-                      See More Tasks
                   </div>
               </div>
 

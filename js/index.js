@@ -5,7 +5,8 @@ const emails = {
     "dragos@make-it-all.co.uk":"#Dragos123",
     "jevan@make-it-all.co.uk":"#Jevan123",
     "kieran@make-it-all.co.uk":"#Kieran123",
-    "nishad@make-it-all.co.uk":"#Nishad123"
+    "nishad@make-it-all.co.uk":"#Nishad123",
+    "bob@make-it-all.co.uk":""
 };
 localStorage.setItem("ALLUSERS", JSON.stringify(emails));
 localStorage.setItem("abhay@make-it-all.co.uk", JSON.stringify(["#Abhay123", "Employee"]));
@@ -15,6 +16,7 @@ localStorage.setItem("dragos@make-it-all.co.uk", JSON.stringify(["#Dragos123", "
 localStorage.setItem("jevan@make-it-all.co.uk", JSON.stringify(["#Jevan123", "Employee"]))
 localStorage.setItem("kieran@make-it-all.co.uk", JSON.stringify(["#Kieran123", "Manager"]));
 localStorage.setItem("nishad@make-it-all.co.uk", JSON.stringify(["#Nishad123", "Employee"]));
+localStorage.setItem("bob@make-it-all.co.uk", JSON.stringify(["", "Employee"]));
 
 //to do tasks: Title, importance, description, 
 function resetProjects() {
@@ -1511,6 +1513,11 @@ if (localStorage.getItem("projectsCreated") != "true") {
   resetProjects();
 }
 
+
+// assign projects to local storage
+
+localStorage.setItem("projects", JSON.stringify(projects));
+
 // assign tasks to local storage
 /*localStorage.setItem("abhay", JSON.stringify(tasks1));
 localStorage.setItem("charlie", JSON.stringify(tasks2));
@@ -1525,8 +1532,71 @@ function submitEmail() {
     let email = document.getElementById("email").value;
 
     if (localStorage.getItem(email) != null) {
-        // make the password visible
-        document.getElementById("password-container").style.display = "block";
+        document.getElementById("email").readOnly = true;
+
+        // Check if the user has a password
+        const userData = JSON.parse(localStorage.getItem(email));
+        if (userData[0]) { // Check if the first element (password) is not empty
+            // Make the password box visible for login
+            document.getElementById("password-container").style.display = "block";
+        } else {
+            // Show onboarding fields for new password
+            document.getElementById("onboarding-container").style.display = "block";
+        }
+        
+        document.getElementById("email-submit").style.display = "none";
+
+        // resets email container
+        document.getElementById("email").style.borderColor = "";
+        document.getElementById("email-error").innerText = "";
+    } else {
+        // Invalid email catch
+        document.getElementById("email").style.borderColor = "red";
+        document.getElementById("email-error").innerText = "Please provide a valid email.";
+    }
+}
+
+function createPassword() {
+    const email = document.getElementById("email").value;
+    const newPassword = document.getElementById("new-password").value;
+    const confirmPassword = document.getElementById("confirm-password").value;
+    const passwordMatchError = document.getElementById("password-match-error");
+
+    // Password validation criteria
+    const passwordCriteria = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+
+    // Clear previous error messages
+    passwordMatchError.innerText = '';
+
+    // Validate passwords
+    if (newPassword !== confirmPassword) {
+        passwordMatchError.innerText = "Passwords do not match.";
+        document.getElementById("new-password").value = '';
+        document.getElementById("confirm-password").value = '';
+    } else if (!passwordCriteria.test(newPassword)) {
+        passwordMatchError.innerText = "Password must be at least 8 characters long, contain at least one uppercase letter, one number, and one special character.";
+        document.getElementById("new-password").value = '';
+        document.getElementById("confirm-password").value = '';
+    } else {
+        // Save the new password to localStorage
+        localStorage.setItem(email, JSON.stringify([newPassword, "Employee"]));
+        
+        // Optionally, set the current user and redirect to the dashboard
+        localStorage.setItem("current_user", email);
+        window.location.replace("empDashboard.html");
+    }
+}
+
+function togglePassword() {
+    const passwordField = document.getElementById("password");
+    const togglePwdButton = document.getElementById("togglePwd");
+
+    if (passwordField.type === "password") {
+        passwordField.type = "text";
+        togglePwdButton.textContent = "🙈"; // Change icon if desired
+    } else {
+        passwordField.type = "password";
+        togglePwdButton.textContent = "👁️";
     }
 }
 
@@ -1535,15 +1605,23 @@ function login(event) {
 
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
+    const passwordField = document.getElementById("password");
 
-    console.log(emails[email]);
-    console.log(emails);
-    console.log(password);
     if (emails[email] === password) {
         localStorage.setItem("current_user", email);
-        console.log(localStorage.getItem("current_user"))
-        window.location.href = ("empDashboard.html");
+        window.location.replace("empDashboard.html");
     } else {
-        console.log("incorrect login");
+        // Incorrect password handling
+        passwordField.value = ""; // Clear the input
+        passwordField.placeholder = "Wrong Password";
+        passwordField.classList.add("error"); // Apply the error class
+        
+        // Change the border color to red
+        passwordField.style.border = "1px solid red"; // Set the border color to red
     }
 }
+
+// Reset the border color when the user starts typing
+document.getElementById("password").addEventListener("input", function() {
+    this.style.border = "1px solid #cccccc"; // Reset to default border color
+});
