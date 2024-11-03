@@ -28,42 +28,42 @@ function getProjects() {
 }
 
 function getTasks(event) {
-    let element = event.target;
-    let projectName = element.id;
+    const element = event.target;
+    const projectName = element.id;
 
-    // Get project details
-    let projectsLocal = JSON.parse(localStorage.getItem("projects"));
-    let pindex = projectsLocal.findIndex(project => project.name == projectName);
-    
-    // Check if project exists
+    // Get project details from localStorage
+    const projectsLocal = JSON.parse(localStorage.getItem("projects"));
+    const pindex = projectsLocal.findIndex(project => project.name === projectName);
+
+    // Verify that the project exists
     if (pindex === -1) {
         console.error("Project not found");
         return;
     }
 
-    // Set a current global project index for creating tasks
+    // Set a global project index for creating tasks
     localStorage.setItem("pindex", `${pindex}`);
 
-    // Get the tasks for the project
-    let project = projectsLocal[pindex];
-    let tasks = project.tasks;
+    // Get tasks of the selected project
+    const project = projectsLocal[pindex];
+    const tasks = project.tasks || [];
 
-    // Get the tasks HTML element and clear it for new tasks
-    let tasksHTML = document.getElementById("tasks");
+    // Reference the tasks HTML element and clear previous tasks
+    const tasksHTML = document.getElementById("tasks");
     tasksHTML.innerHTML = ""; // Clear previous tasks
 
     // Clear task info and hide the placeholder
-    let taskInfo = document.getElementById("task-info");
+    const taskInfo = document.getElementById("task-info");
     taskInfo.innerHTML = ""; // Clear task info
-    document.getElementById("detailed-task-placeholder").style.display = 'none'; // Hide placeholder
+    document.getElementById("detailed-task-placeholder").style.display = 'none';
 
     // Check if tasks exist for the selected project
     if (tasks.length === 0) {
-        tasksHTML.innerHTML = "<li>No tasks available for this project.</li>"; // Handle case where there are no tasks
+        tasksHTML.innerHTML = "<li>No tasks available for this project.</li>";
         return;
     }
 
-    // Iterate through tasks and render each one
+    // Render tasks of the selected project
     tasks.forEach((task, tindex) => {
         tasksHTML.innerHTML += `
             <li class="cursor-pointer" data-pindex="${pindex}" data-tindex="${tindex}" onclick="getTask(event)">
@@ -76,7 +76,6 @@ function getTasks(event) {
             </li>`;
     });
 }
-
 function getTask(event) {
     let element = event.target.closest('li'); // Use closest to ensure we get the correct element if a nested element is clicked
     let pindex = element.dataset.pindex; // Use dataset to retrieve indices correctly
