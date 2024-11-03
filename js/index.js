@@ -1609,7 +1609,7 @@ function login(event) {
 
     if (emails[email] === password) {
         localStorage.setItem("current_user", email);
-        window.location.replace("empDashboard.html");
+        window.location.href = "empDashboard.html";
     } else {
         // Incorrect password handling
         passwordField.value = ""; // Clear the input
